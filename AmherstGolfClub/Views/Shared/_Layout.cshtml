@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | Amherst Golf Club</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="~/Content/sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+</head>
+<body>
+    <div class="nav-side-menu">
+        <div class="brand">
+            <a href='@Url.Action("Index", "Home")'>
+                <img src="~/images/course_logo180x60.jpg" alt="logo" />
+            </a>
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+        <div class="menu-list">
+
+            <ul id="menu-content" class="menu-content collapse out">
+                <a href='@Url.Action("About", "Home")' title="About us"><li>About</li></a>
+                <a href='@Url.Action("Contact", "Home")' title="Contact"><li>Contact</li></a>
+
+                <li data-toggle="collapse" data-target="#products" class="collapsed">
+                    <a href="#">Rates <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <a href='@Url.Action("GeneralRates", "Rates")' title="General Rates"><li>General Rates</li></a>
+                    <a href='@Url.Action("Membership", "Rates")' title="Membership"><li>Membership</li></a>
+                    <a href='@Url.Action("ShopRentals", "Rates")' title="Pro Shop Rentals"><li>Pro Shop Rentals</li></a>
+                    <a href='@Url.Action("Corp", "Rates")' title="Corporate Package"><li>Corporate Package</li></a>
+                </ul>
+                <a href='@Url.Action("Index", "ProShop")' title="Pro Shop"><li>Pro Shop</li></a>
+                <a href='@Url.Action("Index", "Tournament")' title="Tournaments"><li>Tournaments</li></a>
+                <a href='@Url.Action("Index", "MemberInfo")' title="Member Information"><li>Member Information</li></a>
+                <a href='@Url.Action("Index", "Kitchen")' title="Kitchen & Bar"><li>Kitchen &amp; Bar</li></a>
+                <a href='@Url.Action("Index", "Gallery")' title="View Gallery"><li>Gallery</li></a>
+                <a href='#' data-toggle="modal" data-target="#bookTeeTime" title="Make a Reservation"><li>Make a Reservation</li></a>
+            </ul>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="row"><p>@Html.Partial("_LoginPartial")</p></div>
+
+        @RenderBody()
+        <br />
+
+        <div class="container">
+            <table style="width:100%;" cellpadding="15" border="0">
+                <tbody id="table-footer">
+                    <tr>
+                        <td id="reserve-now">
+                            <h3 style="text-shadow: 1px 1px 0 #000; color: #fff;">Book today through GolfNow reservations.</h3>
+                            <p>Tee Times can only be booked online 2 days in advance. For more advanced bookings please call us at (902) 667-1911.</p>
+                            <p><button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#bookTeeTime">Make a reservation</button></p>
+                        </td>
+                        <td id="in-touch">
+                            <h3 style="text-shadow: 1px 1px 0 #000; color: #fff;">Stay in touch.</h3>
+                            <p>Join our mailing list to be notified of events and special offers.</p>
+                            <p><button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#joinMailingList">Join now</button></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="bookTeeTime" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <iframe align="middle" frameborder="0" height="550" id="fcontent" scrolling="yes" src="https://golf.teeitup.com/244393" width="950"></iframe>
+            </div>
+        </div>
+        <div id="joinMailingList" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <iframe src="https://www.teeitup.com/golf/foreinfo.pl?C=244393" width="950" height="550"></iframe>
+            </div>
+        </div>
+        <hr />
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; @DateTime.Now.Year - Amherst Golf Club | All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="media-buttons">
+                        <li><a href="https://www.facebook.com/Amherst-Golf-Club-308349132533482/" title="Facebook"><i class="fa fa-facebook-official fa-lg grow"></i></a></li>
+                        <li><a href="https://twitter.com/AmherstGolf" title="Twitter"><i class="fa fa-twitter-square fa-lg grow"></i></a></li>
+                        <li><a href="https://plus.google.com/+AmherstGolfClubNS" title="Google Plus"><i class="fa fa-google-plus-square fa-lg grow"></i></a></li>
+                        <li><a href="https://www.tripadvisor.ca/Attraction_Review-g182200-d4418032-Reviews-Amherst_Golf_Club-Amherst_Nova_Scotia.html" title="Trip Advisor"><i class="fa fa-tripadvisor fa-lg grow"></i></a></li>
+                        <li><a href="http://golfcanada.ca/" title="Golf Canada"><i class="fa fa-flag fa-lg grow"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

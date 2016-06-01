@@ -1,0 +1,94 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+.body-content {
+    margin-left: 190px;
+    max-width: 115%; 
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.rental-headers{
+    font-weight:bold;
+    font-size:20px;
+}
+
+
+/************************************SOCIAL MEDIA BUTTONS******************************************/
+.media-buttons{
+    position: relative;
+    padding-top: 2%;
+    left: 200px;
+}
+
+.media-buttons li {
+    padding: 10px;
+    margin:auto;
+    text-decoration:none;
+    display:inline;
+}
+
+.media-buttons li a{
+    font-size:150%;
+    color: #848a48;
+}
+
+.grow:hover{
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    -moz-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+}
+
+/************************************FOOTER******************************************/
+footer{
+    max-width: 60%;
+}
+
+footer p{
+    padding-top:2%;
+}
+
+#in-touch{
+    background-color: #6e5a48;
+}
+
+#reserve-now{
+    background-color: #848a48;
+}
+
+#table-footer{
+    font-weight:bold;
+    font-size:110%;
+}
+
+.carousel-pic{
+    width:100%;
+}
+
+.carousel-inner{
+    width:100%;
+    max-height:600px !important;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+@media (max-width: 767px) {
+  .body-content{
+      max-width:85%;
+      margin:auto;
+      padding: 0;
+  }
+
+  .carousel-inner{
+      max-height:0;
+  }
+}

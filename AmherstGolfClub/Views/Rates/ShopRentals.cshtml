@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AmherstGolfClub.Models.Rates>
+@{
+    ViewBag.Title = "ShopRentals";
+}
+
+<div class="container">
+    <h2>Pro Shop Rentals</h2>
+    <table table class="table table-striped" cellpadding="15">
+        <tbody>
+            <tr>
+                <td class="rental-headers">Daily Rentals. HST not included</td>
+            </tr>
+            @foreach (var item in Model.Where(item => item.RatesID > 24 && item.RatesID < 31))
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                </tr>
+            }
+            <tr>
+                <td class="rental-headers">Yearly Rentals. HST not included</td>
+            </tr>
+           @foreach (var item in Model.Where(item => item.RatesID > 30 && item.RatesID < 39))
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+            </tr>
+           }
+            <tr>
+                <td class="rental-headers">Power Cart Rental - Prepaid Storages&sup1;</td>
+            </tr>
+            @foreach (var item in Model.Where(item => item.RatesID > 38 && item.RatesID < 44))
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>&sup1;&nbsp;Pre-paid rentals must state when booking tee times if they require a cart, a cart will not be automatically booked. Reservations will be taken 2 days in advance.</p>
+    <p>&sup2;&nbsp;One user per day (tax not included)</p>
+    <p>&sup3;&nbsp;Unlimited Packages cannot be co-owned.
+</div>

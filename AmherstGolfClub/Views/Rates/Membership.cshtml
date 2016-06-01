@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AmherstGolfClub.Models.Rates>
+@{
+    ViewBag.Title = "Membership";
+}
+
+<div class="container">
+    <h2>Amherst Golf Club's Membership Rates</h2>
+    <table table class="table table-striped" cellpadding="15">
+        <thead>
+            <tr>
+                <em>
+                    2016 membership fees include a $65 per year, per adult, fee devoted to capital as
+                    well as a $50 (includes tax) bar levy in which you will recieve $60 towards the Bar &amp; Kitchen. HST not included.
+                </em>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Where(item => item.RatesID > 15 && item.RatesID < 24))
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                </tr>
+            }
+            @foreach (var item in Model.Where(item => item.RatesID > 23 && item.RatesID < 25))
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Description) @DateTime.Now.AddYears(-1).ToString("yyyy"))</td>
+                    <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>Visa and Master Card are accepted. Replay rate is $15.00 any day.</p>
+</div>
+
