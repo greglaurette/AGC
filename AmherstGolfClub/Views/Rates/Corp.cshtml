@@ -1,7 +1,33 @@
-﻿
+﻿@model IEnumerable<AmherstGolfClub.Models.Rates>
+
 @{
     ViewBag.Title = "Corp";
 }
 
-<h2>Corp</h2>
-
+<div class="container">
+    <div class="col-md-10 col-md-offset-1">
+        <hr />
+        <h2 class="text-center">Corporate Rates</h2>
+        <hr />
+        <table class="table table-striped" cellpadding="15">
+            <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
+            <tbody>
+                @foreach (var item in Model.Where(item => item.RatesID > 43 && item.RatesID < 46))
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p><em>Visa and Master Card are accepted. Replay rate is $15.00 any day</em></p>
+        <br />
+        <h5>Conditions Apply</h5>
+        <p>- Packages must be issued to a business</p>
+        <p>- Cannot be used for Tournament Play</p>
+        <p>- Cannot be combined with any other offers or promotions</p>
+        <p>- Unused rounds many not be carried over from year to year</p>
+    </div>
+</div>
+<hr />

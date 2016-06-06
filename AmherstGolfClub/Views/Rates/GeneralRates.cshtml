@@ -2,99 +2,112 @@
 @{
     ViewBag.Title = "DrivingRange";
 }
-
 <div class="container">
-    <h2>Amherst Golf Club's Green Fees</h2>
-    <table class="table table-striped" cellpadding="15">
-        <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td>Weekday/Weekend</td>
-            </tr>
-         
-            @foreach (var item in Model.Take(4))
-            {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                    <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
-                </tr>
-            }
+    <div class="col-md-10 col-md-offset-1">
+        <hr />
+        <h2 class="text-center">Green Fees</h2>
+        <hr />
 
-        </tbody>
-    </table>
-    <p><strong>Visa and Master Card are accepted. Replay rate is $15.00 any day.</strong></p>
+        <table class="table table-striped" cellpadding="15">
+            <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>Weekday/Weekend</td>
+                </tr>
+
+                @foreach (var item in Model.Take(4))
+            {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p><em>Visa and Master Card are accepted. Replay rate is $15.00 any day</em></p>
+    </div>
 </div>
-
 <div class="container">
-    <h2>Green Fee Specials</h2>
-    <table table class="table table-striped" cellpadding="15">
-        <thead><tr><em>Twilight rates start every day at 3:30pm</em></tr></thead>
-        <tbody>
-            @foreach (var item in Model.Where(item => item.RatesID > 12 && item.RatesID < 16))
-            {
-
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                    <td>@Html.DisplayFor(modelItem => item.TimeFrame)</td>
-                </tr>
-            }
-            @foreach (var item in Model.Where(item=> item.RatesID > 4 && item.RatesID < 9))
-            {
-                
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                    <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
-<div class="container">
-    <h2>Driving Range Pricing</h2>
-    <table table class="table table-striped" cellpadding="15">
-        <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
-        <tbody>
-            @foreach (var item in Model.Where(item => item.RatesID > 8 && item.RatesID < 11))
+    <div class="col-md-10 col-md-offset-1">
+        <hr />
+        <h2 class="text-center">Green Fee Specials</h2>
+        <hr />
+        <table table class="table table-striped" cellpadding="15">
+            <thead><tr><em>Twilight rates start every day at 3:30pm</em></tr></thead>
+            <tbody>
+                @foreach (var item in Model.Where(item => item.RatesID > 12 && item.RatesID < 16))
             {
 
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                    <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
-                </tr>
-            }
-        </tbody>
-</table>
-</div>
-
-<div class="container">
-    <h2>Driving Range Membership</h2>
-    <table table class="table table-striped" cellpadding="15">
-        <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
-        <tbody>
-            @foreach (var item in Model.Where(item => item.RatesID > 10 && item.RatesID < 13))
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TimeFrame)</td>
+                    </tr>
+                }
+                @foreach (var item in Model.Where(item => item.RatesID > 4 && item.RatesID < 9))
             {
 
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                    <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
-
 <div class="container">
-    <h3>Coupons Available:</h3>
-    <ul>
-        <li>Peelers</li>
-        <li>Johnny's Coupons</li>
-        <li>Nova Scotia Lung Book</li>
-        <li>Maritimes Caddie</li>
-        <li>Costco</li>
-    </ul>
-</div>
+    <div class="col-md-10 col-md-offset-1">
+        <hr />
+        <h2 class="text-center">Driving Range Pricing</h2>
+        <hr />
+        <table table class="table table-striped" cellpadding="15">
+            <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
+            <tbody>
+                @foreach (var item in Model.Where(item => item.RatesID > 8 && item.RatesID < 11))
+            {
 
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </div>
+<div class="container">
+    <div class="col-md-10 col-md-offset-1">
+        <hr />
+        <h2 class="text-center">Driving Range Membership</h2>
+        <hr />
+        <table table class="table table-striped" cellpadding="15">
+            <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
+            <tbody>
+                @foreach (var item in Model.Where(item => item.RatesID > 10 && item.RatesID < 13))
+            {
 
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </div>
+<div class="container">
+    <div class="col-md-10 col-md-offset-1">
+        <hr />
+        <h3>Coupons Available:</h3>
+        <ul>
+            <li>Peelers</li>
+            <li>Johnny's Coupons</li>
+            <li>Nova Scotia Lung Book</li>
+            <li>Maritimes Caddie</li>
+            <li>Costco</li>
+        </ul>
+    </div>
+    </div>
+<hr />
 

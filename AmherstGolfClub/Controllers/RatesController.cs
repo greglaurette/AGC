@@ -26,7 +26,7 @@ namespace AmherstGolfClub.Controllers
         }
         public ActionResult Corp()
         {
-            return View();
+            return View(db.Rate.ToList());
         }
     }
 }

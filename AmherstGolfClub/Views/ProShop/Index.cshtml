@@ -5,16 +5,11 @@
 <hr />
 <h2 class="text-center">Proshop Items</h2>
 <hr />
-@*<p>
-        @Html.ActionLink("Upload Inventory", "Index", "Admin")
-    </p>*@
 <div class="container">
-    @{ int counter = 0; }
     @foreach (var item in Model)
     {
         if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
         {
-            counter += 1;
             <div class="col-md-4 center-block" style="margin-bottom:1em">
                 <div class="thumbnail">
                     <h5 class="text-center"><strong>@Html.DisplayFor(c => item.Name)</strong></h5>
