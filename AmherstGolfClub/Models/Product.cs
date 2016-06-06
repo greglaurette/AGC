@@ -9,23 +9,24 @@ namespace AmherstGolfClub.Models
     public class Product
     {
         [Required]
-        [StringLength(60)]
         public string Name { get; set; }
 
         
         public int ProductID { get; set; }
 
         [Required]
-        public string Price { get; set; }
+        public decimal Price { get; set; }
 
         
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
         
         public string SubDepartment { get; set; }
 
         
         public string ItemCategory { get; set; }
+
+        public string Vendor { get; set; }
 
         public IEnumerable<Product> Products { get; set; }
     }

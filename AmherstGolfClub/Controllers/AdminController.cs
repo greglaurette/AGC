@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -51,10 +52,14 @@ namespace AmherstGolfClub.Controllers
                         //product.Quantity = csv.GetField<string>(2);
                         //product.SubDepartment = csv.GetField<string>(3);
                         //product.ItemCategory = csv.GetField<string>(4);
-                        product.Price = csv.GetField<string>(2);
-                        product.Quantity = csv.GetField<string>(3);
+                        product.Price = decimal.Parse(csv.GetField(2));                        
+                        if (csv.GetField<string>(3) == "")
+                            product.Quantity = 0;
+                        else
+                            product.Quantity = int.Parse(csv.GetField<string>(3));
                         product.SubDepartment = csv.GetField<string>(7);
                         product.ItemCategory = csv.GetField<string>(8);
+                        product.Vendor = csv.GetField<string>(17);
                         ProductsToDisplay.Add(product);
                         var exists = db.Products.Where(i => i.ProductID == product.ProductID).SingleOrDefault();
                         if (exists == null)

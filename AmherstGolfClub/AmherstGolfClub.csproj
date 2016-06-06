@@ -229,6 +229,18 @@
     <Compile Include="Migrations\201606011545030_RemoveRequired.Designer.cs">
       <DependentUpon>201606011545030_RemoveRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606061557490_adjustProductField.cs" />
+    <Compile Include="Migrations\201606061557490_adjustProductField.Designer.cs">
+      <DependentUpon>201606061557490_adjustProductField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606061611457_updateToDouble.cs" />
+    <Compile Include="Migrations\201606061611457_updateToDouble.Designer.cs">
+      <DependentUpon>201606061611457_updateToDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606061738418_updateToDecimal.cs" />
+    <Compile Include="Migrations\201606061738418_updateToDecimal.Designer.cs">
+      <DependentUpon>201606061738418_updateToDecimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CanadianProvinces.cs" />
@@ -378,6 +390,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606011545030_RemoveRequired.resx">
       <DependentUpon>201606011545030_RemoveRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606061557490_adjustProductField.resx">
+      <DependentUpon>201606061557490_adjustProductField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606061611457_updateToDouble.resx">
+      <DependentUpon>201606061611457_updateToDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606061738418_updateToDecimal.resx">
+      <DependentUpon>201606061738418_updateToDecimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
