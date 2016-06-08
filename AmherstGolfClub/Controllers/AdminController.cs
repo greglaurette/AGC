@@ -53,7 +53,7 @@ namespace AmherstGolfClub.Controllers
                         //product.SubDepartment = csv.GetField<string>(3);
                         //product.ItemCategory = csv.GetField<string>(4);
                         product.Price = decimal.Parse(csv.GetField(2));                        
-                        if (csv.GetField<string>(3) == "")
+                        if (csv.GetField<string>(3) == "" || int.Parse(csv.GetField<string>(3)) < 0)
                             product.Quantity = 0;
                         else
                             product.Quantity = int.Parse(csv.GetField<string>(3));
