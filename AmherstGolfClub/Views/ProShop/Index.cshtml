@@ -14,7 +14,7 @@
                 <div class="thumbnail">
                     <h5 class="text-center"><strong>@Html.DisplayFor(c => item.Name)</strong></h5>
                     @*forproduction*@
-                    @*<img class="img-responsive" src="~/@item.Name" alt="~/android-chrome-96x96.png" />*@
+                    @*<img class="img-responsive" src="~/{@item.Name}.jpg" alt="~/android-chrome-96x96.png" />*@
                     @*fortesting*@
                     <img class="img-responsive" src="~/android-chrome-96x96.png" alt="@item.Name" />
                     <p class="text-center">$@Html.DisplayFor(c => item.Price)</p>
