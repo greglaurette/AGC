@@ -26,6 +26,15 @@ namespace AmherstGolfClub
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            //WILLS 
+            //Calendar css file
+            bundles.Add(new StyleBundle("~/Content/fullcalendar").Include(
+                    "~/Content/fullcalendar.css"));
+
+            //jQuery fullcalendar plugin js
+            bundles.Add(new ScriptBundle("~/bundles/fullcalendar").Include(
+                      "~/Scripts/moment.js",
+                      "~/Scripts/fullcalendar.js"));
         }
     }
 }

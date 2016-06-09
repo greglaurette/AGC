@@ -14,5 +14,6 @@ namespace AmherstGolfClub.DAL
         public DbSet<Rates> Rate { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<TournamentPlayers> Players { get; set; }
+        public DbSet<Events> Events { get; set; }
     }
 }

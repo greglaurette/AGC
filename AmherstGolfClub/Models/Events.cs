@@ -21,7 +21,8 @@ namespace AmherstGolfClub.Models
         public DateTime Date { get; set; }
 
         [Required]
-        public string Time { get; set; }
+        public DateTime start { get; set; }
+        public DateTime end { get; set; }
 
         [ForeignKey("EventType")]
         public int Type { get; set; }

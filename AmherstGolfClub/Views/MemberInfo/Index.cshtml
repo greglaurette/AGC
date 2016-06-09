@@ -19,32 +19,65 @@
     <div class="col-md-10 col-md-offset-1">
         <hr />
         <h2 class="text-center">Calendar of Events</h2>
-        @**********FOR WILL********@
-
-    </div>
-</div>
-@*END OF WILL CALENDAR*@
-<div class="container">
-    <div class="col-md-10 col-md-offset-1">
-
         <hr />
-        <h2 class="text-center">Gift Card Policy</h2>
-        <hr />
-        <p>
-            1. <strong>"Prize Card"</strong> which will be awarded to any person that wins a prize in club event. This card can be used for any
-            future purchases in the Kitchen &amp; Bar.
-        </p>
-        <p>
-            2. <strong>"Gift Card"</strong> will be "sold" and can be usded for anything (membership, carts, food &amp; beverage, pro shop, etc.).
-        </p>
-        <h4>Restrictions</h4>
-        <ol>
-            <li>Prize cards cannot be used to pay off club accounts.</li>
-            <li>Prize cards cannoth be used to create a credit on a club account.</li>
-            <li>Any pro shop merchandise given out as a prize in an event cannot be exchanged for a Prize Card of the same value.</li>
-            <li>All gift cards (green cards) that are currently issued will be subject to the new "Prize Card" policy.</li>
-            <li>Prize Cards &amp; Gift Cards cannot be exchanged for cash.</li>
-        </ol>
-    </div>
-</div>
-<hr />
+        <div id="fullcalendar"></div>
+
+        @section Scripts {
+
+            <script type="text/javascript">
+                $(function () {
+                    $('#fullcalendar').fullCalendar({
+                        header: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'month,agendaWeek,agendaDay'
+                        },
+                        defaultDate: new Date(),
+                        defaultView: 'month',
+                        events: [
+        {
+            title: 'Tournament Opening ',
+            Date: '2016-06-04',
+            start: '2016-06-04 1:00',
+            end: '2016-06-04 5:00'
+        },
+           
+        {
+            title: 'Tournament Opening',
+            Date: '2016-06-05',
+            start: '2016-06-06 1:00',
+            end: '2016-06-06 5:00'
+        }
+        // etc...
+                        ],
+                        color: 'yellow',   // an option!
+                        textColor: 'black' // an option!
+                    });
+                });
+            </script>
+
+
+        }
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1">
+
+                <hr />
+                <h2 class="text-center">Gift Card Policy</h2>
+                <hr />
+                <p>
+                    1. <strong>"Prize Card"</strong> which will be awarded to any person that wins a prize in club event. This card can be used for any
+                    future purchases in the Kitchen &amp; Bar.
+                </p>
+                <p>
+                    2. <strong>"Gift Card"</strong> will be "sold" and can be usded for anything (membership, carts, food &amp; beverage, pro shop, etc.).
+                </p>
+                <h4>Restrictions</h4>
+                <ol>
+                    <li>Prize cards cannot be used to pay off club accounts.</li>
+                    <li>Prize cards cannoth be used to create a credit on a club account.</li>
+                    <li>Any pro shop merchandise given out as a prize in an event cannot be exchanged for a Prize Card of the same value.</li>
+                    <li>All gift cards (green cards) that are currently issued will be subject to the new "Prize Card" policy.</li>
+                    <li>Prize Cards &amp; Gift Cards cannot be exchanged for cash.</li>
+                </ol>
+            </div>
+        </div>
