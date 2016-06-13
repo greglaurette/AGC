@@ -13,7 +13,7 @@ namespace AmherstGolfClub.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Products);
+            return View(db.MenuItems);
         }
         protected override void Dispose(bool disposing)
         {

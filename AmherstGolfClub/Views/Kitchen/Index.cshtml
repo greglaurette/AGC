@@ -1,31 +1,181 @@
-﻿@model IEnumerable<AmherstGolfClub.Models.Product>
+﻿@model IEnumerable<AmherstGolfClub.Models.MenuItem>
 
 @{
     ViewBag.Title = "Kitchen";
 }
-
+<hr />
+<h2 class="text-center">Kitchen Menu</h2>
+<hr />
 
 <div class="container">
-    <div class="col-md-10 col-md-offset-1">
-        <hr />
-        <h2 class="text-center">Kitchen &amp; Bar</h2>
-        <hr />
-        @foreach (var item in Model)
-        {
-            if (item.Quantity > 0 && item.SubDepartment == "Food & Beverage")
-            {                
-                <div class="col-md-4 center-block" style="margin-bottom:1em">
-                    <div class="thumbnail">
-                        <h5 class="text-center"><strong>@Html.DisplayFor(c => item.Name)</strong></h5>
-                        
-                        <img class="img-responsive" src="~/android-chrome-96x96.png" alt="@item.Name" />
-                        <p class="text-center">$@Html.DisplayFor(c => item.Price)</p>
-                    </div>
-                </div>
-            }
-        }
+    <div class="row">
+        <div class="col-md-4">
+            <hr />
+            <h3 class="text-center">Breakfast</h3>
+            <hr />
+            <table table class="table table-striped" cellpadding="15">
+                <tbody>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.Where(item => item.Type == 1))
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>$ @Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <hr />
+            <h3 class="text-center">Club Favorites</h3>
+            <hr />
+            <table table class="table table-striped" cellpadding="15">
+                <tbody>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.Where(item => item.Type == 2))
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>$ @Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <hr />
+            <h3 class="text-center">Daily Favorites</h3>
+            <hr />
+            <table table class="table table-striped" cellpadding="15">
+                <tbody>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.Where(item => item.Type == 5))
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>$ @Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <hr />
+            <h3 class="text-center">Lunch Favourites</h3>
+            <hr />
+            <table table class="table table-striped" cellpadding="15">
+                <tbody>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.Where(item => item.Type == 4))
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>$ @Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <hr />
+            <h3 class="text-center">Burgers</h3>
+            <hr />
+            <table table class="table table-striped" cellpadding="15">
+                <tbody>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.Where(item => item.Type == 6))
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>$ @Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <hr />
+            <h3 class="text-center">Sandwiches</h3>
+            <hr />
+            <table table class="table table-striped" cellpadding="15">
+                <tbody>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.Where(item => item.Type == 8))
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>$ @Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <hr />
+            <h3 class="text-center">Side Orders</h3>
+            <hr />
+            <table table class="table table-striped" cellpadding="15">
+                <tbody>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.Where(item => item.Type == 7))
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>$ @Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <hr />
+            <h3 class="text-center">Beverages</h3>
+            <hr />
+            <table table class="table table-striped" cellpadding="15">
+                <tbody>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.Where(item => item.Type == 3))
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>$ @Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+
 <hr />
 
 

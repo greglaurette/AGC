@@ -231,6 +231,10 @@
     <Compile Include="Migrations\GolfMigrations\201606081654289_Initial Create.Designer.cs">
       <DependentUpon>201606081654289_Initial Create.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606131915548_AddMenu.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606131915548_AddMenu.Designer.cs">
+      <DependentUpon>201606131915548_AddMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CanadianProvinces.cs" />
@@ -239,6 +243,8 @@
     <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MenuCategory.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Rates.cs" />
     <Compile Include="Models\Tournament.cs" />
@@ -459,6 +465,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\GolfMigrations\201606081654289_Initial Create.resx">
       <DependentUpon>201606081654289_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606131915548_AddMenu.resx">
+      <DependentUpon>201606131915548_AddMenu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
