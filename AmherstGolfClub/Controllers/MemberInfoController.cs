@@ -12,11 +12,13 @@ namespace AmherstGolfClub.Controllers
 
     public class MemberInfoController : Controller
     {
-        
+        private GolfContext db = new GolfContext();
 
         public ActionResult Index()
         {
-            return View();
+            var events = db.Events;
+            return View(events);
+           
         }
        
 

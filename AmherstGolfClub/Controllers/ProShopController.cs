@@ -16,10 +16,72 @@ namespace AmherstGolfClub.Controllers
         private GolfContext db = new GolfContext();
 
         // GET: ProShop
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Products);
-        }       
+
+            //Prepare sort order 
+            ViewBag.CurrentSort = sortOrder;//get current sort from UI
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "Price_desc" : "Price";
+            ViewBag.CatSortParm = sortOrder == "Cat" ? "Cat_desc" : "Cat";
+            ViewBag.LowPriceSortParm = sortOrder == "lPrice" ? "lPrice_desc" : "lPrice_desc";
+
+            
+
+            
+            var products = from s in db.Products select s;
+            
+            
+
+            
+
+
+
+            //Apply the sort order 
+            switch (sortOrder)
+            {
+
+                
+                case "Price":
+                    products = products.OrderBy(s => s.Price);
+                    break;
+                case "Price_desc":
+                    products = products.OrderByDescending(s => s.Price);
+                    break;
+
+
+               
+                case "lPrice":
+                    products = products.OrderBy(s => s.Price);
+                    break;
+
+                case "lPrice_desc":
+                    products = products.OrderByDescending(s => s.Price);
+                    break;
+
+
+                
+                default:
+                    products = products.OrderBy(s => s.Price);
+                    break;
+            }
+          
+            
+            return View(products.ToList());
+        }
+        //public ActionResult ProductsByCategory(string name)
+        //{
+        //    if (string.IsNullOrEmpty(name))
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    var products = db.Products.Where(c => c.Products.ItemCategory == name);
+        //    var categories = products.FirstOrDefault();
+
+        //    ViewBag.Category = categories.Category.CategoryName;
+
+        //    return View(products.ToList());
+        //}
 
         protected override void Dispose(bool disposing)
         {

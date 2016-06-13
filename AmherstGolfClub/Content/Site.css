@@ -16,6 +16,26 @@
     font-size:20px;
 }
 
+/*******WILLS CSS*********/
+#fullcalendar{
+    
+    
+}
+.fc-toolbar{
+    background-color:black;
+    padding-top: 5px;
+    margin-bottom:0px;
+    
+}
+
+.fc-widget-header-center{
+    text-decoration-color:brown;
+}
+.fc-widget-header{
+    background-color:darkgray;
+    padding:5px;
+    text-decoration-color:azure;
+}
 /**************************************/
 body {
     padding-top: 50px;

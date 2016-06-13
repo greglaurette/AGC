@@ -677,7 +677,7 @@ a.fc-more:hover {
 
 .fc-toolbar {
 	text-align: center;
-	margin-bottom: 1em;
+	
 }
 
 .fc-toolbar .fc-left {
@@ -701,12 +701,14 @@ a.fc-more:hover {
 /* the first thing within each left/center/right section */
 .fc .fc-toolbar > * > :first-child { /* extra precedence to override button border margins */
 	margin-left: 0;
+    
 }
 	
 /* title text */
 
 .fc-toolbar h2 {
 	margin: 0;
+    color:floralwhite;
 }
 
 /* button layering (for border precedence) */
