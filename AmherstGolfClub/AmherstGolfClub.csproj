@@ -217,6 +217,7 @@
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KitchenController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberInfoController.cs" />
     <Compile Include="Controllers\ProShopController.cs" />
@@ -447,6 +448,14 @@
     <Content Include="Views\Home\Success.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\ProShop\_CategoryMenuPartial.cshtml" />
+    <Content Include="Views\Kitchen\Create.cshtml" />
+    <Content Include="Views\Kitchen\Delete.cshtml" />
+    <Content Include="Views\Kitchen\Details.cshtml" />
+    <Content Include="Views\Kitchen\Edit.cshtml" />
+    <Content Include="Views\Admin\MenuCreate.cshtml" />
+    <Content Include="Views\Admin\ViewMenu.cshtml" />
+    <Content Include="Views\Admin\MenuEdit.cshtml" />
+    <Content Include="Views\Admin\MenuDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

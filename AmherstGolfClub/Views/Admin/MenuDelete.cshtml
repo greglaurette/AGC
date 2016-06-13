@@ -1,0 +1,49 @@
+﻿@model AmherstGolfClub.Models.MenuItem
+
+@{
+    ViewBag.Title = "MenuDelete";
+}
+<hr />
+<h2 class="text-center">Delete @Html.DisplayTextFor(m => m.ItemName)</h2>
+<hr />
+<h3>Are you sure you want to delete this?</h3>
+<div>    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuCategory.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuCategory.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPrice)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+            <hr />
+            @Html.ActionLink("View Menu", "ViewMenu") | 
+            @Html.ActionLink("Admin Home", "Index")
+        </div>
+    }
+</div>
+<hr />

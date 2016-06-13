@@ -58,8 +58,10 @@ namespace AmherstGolfClub.Controllers
                         else
                             product.Quantity = int.Parse(csv.GetField<string>(3));
                         product.SubDepartment = csv.GetField<string>(7);
-                        product.ItemCategory = csv.GetField<string>(8);
-                        product.Vendor = csv.GetField<string>(17);
+                        if (csv.GetField<string>(8) == "")
+                            product.ItemCategory = "unknown";
+                        else
+                            product.ItemCategory = csv.GetField<string>(8);
                         ProductsToDisplay.Add(product);
                         var exists = db.Products.Where(i => i.ProductID == product.ProductID).SingleOrDefault();
                         if (exists == null)
@@ -73,12 +75,91 @@ namespace AmherstGolfClub.Controllers
                     ViewBag.RecordsSaved = count;
                 }
             }
+
+
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
             return View(ProductsToDisplay);
+        }
+
+        public ActionResult ViewMenu()
+        {
+            var menuItems = db.MenuItems.Include(m => m.MenuCategory);
+            return View(menuItems.ToList());
+        }
+        public ActionResult MenuCreate()
+        {
+            ViewBag.Type = new SelectList(db.MenuCategories, "MenuCategoryID", "Type");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MenuCreate([Bind(Include = "MenuItemID,ItemName,ItemPrice,Type")] MenuItem menuItem)
+        {
+            if (ModelState.IsValid)
+            {
+                db.MenuItems.Add(menuItem);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Type = new SelectList(db.MenuCategories, "MenuCategoryID", "Type", menuItem.Type);
+            return View(menuItem);
+        }
+        public ActionResult MenuEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            MenuItem menuItem = db.MenuItems.Find(id);
+            if (menuItem == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Type = new SelectList(db.MenuCategories, "MenuCategoryID", "Type", menuItem.Type);
+            return View(menuItem);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MenuEdit([Bind(Include = "MenuItemID,ItemName,ItemPrice,Type")] MenuItem menuItem)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(menuItem).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Type = new SelectList(db.MenuCategories, "MenuCategoryID", "Type", menuItem.Type);
+            return View(menuItem);
+        }
+        public ActionResult MenuDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            MenuItem menuItem = db.MenuItems.Find(id);
+            if (menuItem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(menuItem);
+        }
+
+        // POST: Kitchen/Delete/5
+        [HttpPost, ActionName("MenuDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult MenuDeleteConfirmed(int id)
+        {
+            MenuItem menuItem = db.MenuItems.Find(id);
+            db.MenuItems.Remove(menuItem);
+            db.SaveChanges();
+            return RedirectToAction("ViewMenu");
         }
     }
 }

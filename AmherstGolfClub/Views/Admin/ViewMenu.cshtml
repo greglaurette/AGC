@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AmherstGolfClub.Models.MenuItem>
+
+@{
+    ViewBag.Title = "ViewMenu";
+}
+<hr />
+<h2 class="text-center">Menu Items List View</h2>
+<hr />
+<p>
+    @Html.ActionLink("Create New", "MenuCreate")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuCategory.Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MenuCategory.Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "MenuEdit", new { id = item.MenuItemID }) |
+            @Html.ActionLink("Delete", "MenuDelete", new { id = item.MenuItemID })
+        </td>
+    </tr>
+}
+
+</table>
+<hr />
+
+<div>
+    @Html.ActionLink("Admin Home", "Index")
+</div>
+<hr />
