@@ -1,5 +1,10 @@
 ﻿body {
     padding-bottom: 20px;
+    /*background: url(../apple-touch-icon-120x120.png);
+    background-size: contain;
+    background-repeat: no-repeat;*/
+
+    /*finish background so that image is watermarkd on paged*/
 }
 
 .body-content {
