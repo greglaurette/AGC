@@ -217,7 +217,6 @@
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KitchenController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberInfoController.cs" />
     <Compile Include="Controllers\ProShopController.cs" />
@@ -239,6 +238,8 @@
     <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MenuCategory.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Rates.cs" />
     <Compile Include="Models\Tournament.cs" />
