@@ -235,8 +235,17 @@
     <Compile Include="Migrations\GolfMigrations\201606131915548_AddMenu.Designer.cs">
       <DependentUpon>201606131915548_AddMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606151711087_ArticleManager.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606151711087_ArticleManager.Designer.cs">
+      <DependentUpon>201606151711087_ArticleManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606151814135_UpdateArticles.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606151814135_UpdateArticles.Designer.cs">
+      <DependentUpon>201606151814135_UpdateArticles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Articles.cs" />
     <Compile Include="Models\CanadianProvinces.cs" />
     <Compile Include="Models\ContactForm.cs" />
     <Compile Include="Models\Events.cs" />
@@ -456,6 +465,8 @@
     <Content Include="Views\Admin\ViewMenu.cshtml" />
     <Content Include="Views\Admin\MenuEdit.cshtml" />
     <Content Include="Views\Admin\MenuDelete.cshtml" />
+    <Content Include="Views\Admin\ArticleList.cshtml" />
+    <Content Include="Views\Admin\EditArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -477,6 +488,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\GolfMigrations\201606131915548_AddMenu.resx">
       <DependentUpon>201606131915548_AddMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606151711087_ArticleManager.resx">
+      <DependentUpon>201606151711087_ArticleManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606151814135_UpdateArticles.resx">
+      <DependentUpon>201606151814135_UpdateArticles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

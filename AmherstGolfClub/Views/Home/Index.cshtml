@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<AmherstGolfClub.Models.Articles>
+@{
     ViewBag.Title = "Home";
 }
 <hr />
@@ -44,18 +45,28 @@
     <div class="col-md-10 col-md-offset-1">
         <div class="row">
             <div class="col-md-4">
-                <h2>Welcome to Amherst Golf Club</h2>
-                <p>
-                    The Amherst Golf Club is located in a pastoral setting with views of the Tantramar marsh. It provides high quality golf and an outstanding service to visitors and residents. The club also offers professional instruction from a PGA of Canada Pro for those who want to improve their game.
+                <h2>
+                    @foreach (var item in Model.Where(item => item.ArticlesID == 1))
+                    {
+                        @Html.DisplayFor(modelItem => item.Description)
 
-                    The 18 hole golf course combines the natural beauty of the Maritimes with a challenging open course. It boasts fast greens and very lush fairways which can be found in immaculate condition.
-                </p>
-            </div>
-            <div class="col-md-8">
-                <img src="~/images/nsMap.jpg" class="img-responsive" />
-            </div>
+                    }
+                </h2>
+
+
+
+                <p>
+                    @foreach (var item in Model.Where(item => item.ArticlesID == 2))
+                    {
+                        @Html.DisplayFor(modelItem => item.Description)
+
+                    }</p>
+        </div>
+        <div class="col-md-8">
+            <img src="~/images/nsMap.jpg" class="img-responsive" />
         </div>
     </div>
+</div>
 </div>
 
 <br /><hr />

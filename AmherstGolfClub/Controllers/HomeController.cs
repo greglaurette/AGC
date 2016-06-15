@@ -8,19 +8,24 @@ using System.Net.Mail;
 using System.Text;
 using System.Web.UI;
 using AmherstGolfClub.Models;
+using AmherstGolfClub.DAL;
 
 namespace AmherstGolfClub.Controllers
 {
     public class HomeController : Controller
     {
+        private GolfContext db = new GolfContext();
+
         public ActionResult Index()
         {
-            return View();
+            var articles = db.Article;
+            return View(articles);
         }
 
         public ActionResult About()
         {
-           return View();
+            var articles = db.Article;
+            return View(articles);
         }
 
         public ActionResult Contact()

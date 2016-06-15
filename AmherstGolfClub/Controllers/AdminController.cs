@@ -59,7 +59,7 @@ namespace AmherstGolfClub.Controllers
                             product.Quantity = int.Parse(csv.GetField<string>(3));
                         product.SubDepartment = csv.GetField<string>(7);
                         if (csv.GetField<string>(8) == "")
-                            product.ItemCategory = "unknown";
+                            product.ItemCategory = "No Category";
                         else
                             product.ItemCategory = csv.GetField<string>(8);
                         ProductsToDisplay.Add(product);
@@ -160,6 +160,41 @@ namespace AmherstGolfClub.Controllers
             db.MenuItems.Remove(menuItem);
             db.SaveChanges();
             return RedirectToAction("ViewMenu");
+        }
+
+        public ActionResult ArticleList()
+        {
+            var articleList = db.Article;
+            return View(articleList.ToList());
+        }
+
+        public ActionResult EditArticle(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Articles article = db.Article.Find(id);
+            if (article == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Type = new SelectList(db.Article, "SiteLocation", "Description");
+            return View(article);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditArticle([Bind(Include = "ArticlesID,SiteLocation,Description")] Articles article)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(article).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ArticleList");
+            }
+            ViewBag.Type = new SelectList(db.Article, "SiteLocation", "Description");
+            return View(article);
         }
     }
 }
