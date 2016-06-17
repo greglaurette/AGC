@@ -473,6 +473,15 @@
     <Content Include="Views\Youth\Details.cshtml" />
     <Content Include="Views\Youth\Edit.cshtml" />
     <Content Include="Views\Youth\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Admin\EventList.cshtml" />
+    <Content Include="Views\Admin\EventCreate.cshtml" />
+    <Content Include="Views\Admin\EventEdit.cshtml" />
+    <Content Include="Views\Admin\EventDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

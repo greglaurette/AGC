@@ -196,5 +196,87 @@ namespace AmherstGolfClub.Controllers
             ViewBag.Type = new SelectList(db.Article, "SiteLocation", "Description");
             return View(article);
         }
+
+        public ActionResult EventList()
+        {
+            var events = db.Events.Include(e => e.EventType);
+            return View(events.ToList());
+        }
+
+        public ActionResult EventCreate()
+        {
+            ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EventCreate([Bind(Include = "EventsID,EventName,Description,Date,start,end,Type")] Events events)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Events.Add(events);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type", events.Type);
+            return View(events);
+        }
+
+        public ActionResult EventEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Events events = db.Events.Find(id);
+            if (events == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type", events.Type);
+            return View(events);
+        }
+                
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EventEdit([Bind(Include = "EventsID,EventName,Description,Date,start,end,Type")] Events events)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(events).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type", events.Type);
+            return View(events);
+        }
+
+        
+        public ActionResult EventDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Events events = db.Events.Find(id);
+            if (events == null)
+            {
+                return HttpNotFound();
+            }
+            return View(events);
+        }
+
+        // POST: Events/Delete/5
+        [HttpPost, ActionName("EventDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EventDeleteConfirmed(int id)
+        {
+            Events events = db.Events.Find(id);
+            db.Events.Remove(events);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
