@@ -223,6 +223,7 @@
     <Compile Include="Controllers\ProShopController.cs" />
     <Compile Include="Controllers\RatesController.cs" />
     <Compile Include="Controllers\TournamentController.cs" />
+    <Compile Include="Controllers\YouthController.cs" />
     <Compile Include="DAL\GolfContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -467,6 +468,11 @@
     <Content Include="Views\Admin\MenuDelete.cshtml" />
     <Content Include="Views\Admin\ArticleList.cshtml" />
     <Content Include="Views\Admin\EditArticle.cshtml" />
+    <Content Include="Views\Youth\Create.cshtml" />
+    <Content Include="Views\Youth\Delete.cshtml" />
+    <Content Include="Views\Youth\Details.cshtml" />
+    <Content Include="Views\Youth\Edit.cshtml" />
+    <Content Include="Views\Youth\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

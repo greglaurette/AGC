@@ -1,0 +1,95 @@
+﻿@model IEnumerable<AmherstGolfClub.Models.Articles>
+
+@{
+    ViewBag.Title = "Junior Golf";
+}
+<hr />
+<h2 class="text-center">Youth Programs</h2>
+<hr />
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <h4 class="text-center">
+                        @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 5))
+                        {
+                            @item.Description
+                        }
+                        --
+                        @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 6))
+                        {
+                            @item.Description
+                        }
+                    </h4>
+
+                    <hr />
+                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 7))
+                    {
+                        <div class="col-md-8 col-md-offset-1"><p class="text-center">@item.Description</p></div>
+                    }
+                </div>
+                <hr />
+                <h4 class="text-center">
+                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 8))
+                    {
+                        @item.Description
+                    }
+                </h4>
+                <hr />
+                @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 9))
+                {
+                    <div class="col-md-8 col-md-offset-1"><p class="text-center">@item.Description</p></div>
+                }
+            </div>
+            <div class="col-md-4">
+                <img src="~/images/familygolfing.jpg" class="img-responsive img-rounded" alt="~/android-chrome-96x96.png" />
+            </div>
+        </div>
+        <br />
+        <div class="row">            
+            <div class="col-md-4">
+                <br />
+                <br />
+                <img src="~/images/NGCOA.jpg" class="img-responsive img-rounded" alt="~/android-chrome-96x96.png" />
+            </div>
+            <div class="col-md-8">
+                <hr />
+                <h4 class="text-center">
+                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 10))
+                    {
+                        @item.Description
+                    }
+                    --
+                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 11))
+                    {
+                        @item.Description
+                    }
+                </h4>
+                <hr />
+                @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 12))
+                {
+                    <div class="col-md-8 col-md-offset-1"><p class="text-center">@item.Description</p></div>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <hr />
+            <h4 class="text-center">
+                @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 13))
+                {
+                    @item.Description
+                }
+            </h4>
+            <hr />
+                <div class="col-md-10 col-md-offset-1">
+                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID > 13 && modelItem.ArticlesID < 18))
+                    {
+                        <p class="text-center">@item.Description</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
