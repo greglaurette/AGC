@@ -22,8 +22,8 @@
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter <span class="caret"></span> </a>
                 <ul class="dropdown-menu">
-                    <li>@Html.ActionLink("Low-To-High","Index", new { sortOrder = ViewBag.PriceSortParm})</li>
-                    <li>@Html.ActionLink("High-To-Low", "Index", new { sortOrder = ViewBag.LowPriceSortParm} )</li>
+                    <li>@Html.ActionLink("Low-To-High", "Index", new { sortOrder = ViewBag.PriceSortParm, name = ViewBag.FilterTest })</li>
+                    <li>@Html.ActionLink("High-To-Low", "Index", new { sortOrder = ViewBag.LowPriceSortParm, name = ViewBag.FilterTest })</li>
                     
 
 
@@ -32,23 +32,28 @@
         </div>
     </div>
     @**@
-    @foreach (var item in Model)
-    {
-        if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
-        {
-            <div class="col-md-4 center-block" style="margin-bottom:1em">
-                <div class="thumbnail">
-                    <h5 class="text-center"><strong>@Html.DisplayFor(c => item.Name)</strong></h5>
-                    @*forproduction*@
-                    @*<img class="img-responsive" src="~/{@item.Name}.jpg" alt="~/android-chrome-96x96.png" />*@
-                    @*fortesting*@
-                    <img class="img-responsive" src="~/android-chrome-96x96.png" alt="@item.Name" />
-                    <p class="text-center">$@Html.DisplayFor(c => item.Price)</p>
-                    
-                </div>
-            </div>            
-        }
-    }
+    
+        @{ 
+            
+            foreach (var item in Model)
+            {
+                if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
+                {
+                    if (item.ItemCategory == ViewBag.FilterTest || ViewBag.FilterTest == null) {
+                <div class="col-md-4 center-block" style="margin-bottom:1em">
+                    <div class="thumbnail">
+                        <h5 class="text-center"><strong>@Html.DisplayFor(c => item.Name)</strong></h5>
+                        @*forproduction*@
+                        @*<img class="img-responsive" src="~/{@item.Name}.jpg" alt="~/android-chrome-96x96.png" />*@
+                        @*fortesting*@
+                        <img class="img-responsive" src="~/android-chrome-96x96.png" alt="@item.Name" />
+                        <p class="text-center">$@Html.DisplayFor(c => item.Price)</p>
 
+                    </div>
+                </div>
+                        }
+                    }
+                }
+            }
 </div>
 

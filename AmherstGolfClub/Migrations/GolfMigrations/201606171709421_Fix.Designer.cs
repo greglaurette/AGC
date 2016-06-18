@@ -7,13 +7,13 @@ namespace AmherstGolfClub.Migrations.GolfMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddMenu : IMigrationMetadata
+    public sealed partial class Fix : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMenu));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Fix));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606131915548_AddMenu"; }
+            get { return "201606171709421_Fix"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,9 +1,14 @@
 ﻿@{
     IEnumerable<AmherstGolfClub.Models.Product> list = new AmherstGolfClub.DAL.GolfContext().Products;
+    var count = 0;
 
     foreach (var item in list)
     {
-        <li>@Html.ActionLink(item.ItemCategory, "Index", new { name = item.ItemCategory }, null)</li>
+        
+        <li>@Html.ActionLink(item.ItemCategory, "Index", new { name = item.ItemCategory })</li>
+        
+
     }
     <li>@Html.ActionLink("All categories", "Index")</li>
+    
 }
