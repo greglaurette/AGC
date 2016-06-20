@@ -104,7 +104,7 @@ namespace AmherstGolfClub.Controllers
             {
                 db.MenuItems.Add(menuItem);
                 db.SaveChanges();
-                return RedirectToAction("ViewMenu");
+                return RedirectToAction("Index");
             }
 
             ViewBag.Type = new SelectList(db.MenuCategories, "MenuCategoryID", "Type", menuItem.Type);
@@ -132,7 +132,7 @@ namespace AmherstGolfClub.Controllers
             {
                 db.Entry(menuItem).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("ViewMenu");
+                return RedirectToAction("Index");
             }
             ViewBag.Type = new SelectList(db.MenuCategories, "MenuCategoryID", "Type", menuItem.Type);
             return View(menuItem);
@@ -217,7 +217,7 @@ namespace AmherstGolfClub.Controllers
             {
                 db.Events.Add(events);
                 db.SaveChanges();
-                return RedirectToAction("EventList");
+                return RedirectToAction("Index");
             }
 
             ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type", events.Type);
@@ -247,7 +247,7 @@ namespace AmherstGolfClub.Controllers
             {
                 db.Entry(events).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("EventList");
+                return RedirectToAction("Index");
             }
             ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type", events.Type);
             return View(events);
@@ -276,87 +276,7 @@ namespace AmherstGolfClub.Controllers
             Events events = db.Events.Find(id);
             db.Events.Remove(events);
             db.SaveChanges();
-            return RedirectToAction("EventList");
-        }
-        
-        public ActionResult TournyList()
-        {
-            var tourny = db.Tournaments.ToList();
-            return View(tourny);
-        }        
-
-        public ActionResult TournyCreate()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult TournyCreate([Bind(Include = "TournamentID,TournamentName,TournamentDate,Year")] Tournament tourney)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Tournaments.Add(tourney);
-                db.SaveChanges();
-                return RedirectToAction("TournyList");
-            }
-
-            return View(tourney);
-        }
-
-        public ActionResult TournyDelete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Tournament tourney = db.Tournaments.Find(id);
-            if (tourney == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tourney);
-        }
-
-        // POST: Product/Delete/5
-        [HttpPost, ActionName("TournyDelete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult TournyDeleteConfirmed(int id)
-        {
-            Tournament tourney = db.Tournaments.Find(id);
-            db.Tournaments.Remove(tourney);
-            db.SaveChanges();
-            return RedirectToAction("TournyList");
-        }
-
-        public ActionResult TournyEdit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Tournament tournament = db.Tournaments.Find(id);
-            if (tournament == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tournament);
-        }
-
-        // POST: Product/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult TournyEdit([Bind(Include = "TournamentID,TournamentName,TournamentDate,Year")] Tournament tournament)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(tournament).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("TournyList");
-            }
-            return View(tournament);
+            return RedirectToAction("Index");
         }
     }
 }

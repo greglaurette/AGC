@@ -228,13 +228,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\GolfMigrations\201606171709421_Fix.cs" />
-    <Compile Include="Migrations\GolfMigrations\201606171709421_Fix.Designer.cs">
-      <DependentUpon>201606171709421_Fix.cs</DependentUpon>
+    <Compile Include="Migrations\GolfMigrations\201606081654289_Initial Create.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606081654289_Initial Create.Designer.cs">
+      <DependentUpon>201606081654289_Initial Create.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\GolfMigrations\201606172148097_adjustTourny.cs" />
-    <Compile Include="Migrations\GolfMigrations\201606172148097_adjustTourny.Designer.cs">
-      <DependentUpon>201606172148097_adjustTourny.cs</DependentUpon>
+    <Compile Include="Migrations\GolfMigrations\201606131915548_AddMenu.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606131915548_AddMenu.Designer.cs">
+      <DependentUpon>201606131915548_AddMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606151711087_ArticleManager.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606151711087_ArticleManager.Designer.cs">
+      <DependentUpon>201606151711087_ArticleManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606151814135_UpdateArticles.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606151814135_UpdateArticles.Designer.cs">
+      <DependentUpon>201606151814135_UpdateArticles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606201526488_adjustTourny.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606201526488_adjustTourny.Designer.cs">
+      <DependentUpon>201606201526488_adjustTourny.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -437,6 +449,11 @@
     <Content Include="Views\Rates\GeneralRates.cshtml" />
     <Content Include="Views\Rates\Corp.cshtml" />
     <Content Include="Views\Manage\UserInfo.cshtml" />
+    <Content Include="Views\Tournament\Details.cshtml" />
+    <Content Include="Views\Tournament\Index.cshtml" />
+    <Content Include="Views\Tournament\Create.cshtml" />
+    <Content Include="Views\Tournament\Delete.cshtml" />
+    <Content Include="Views\Tournament\Edit.cshtml" />
     <Content Include="Views\ProShop\Create.cshtml" />
     <Content Include="Views\ProShop\Delete.cshtml" />
     <Content Include="Views\ProShop\Details.cshtml" />
@@ -469,16 +486,10 @@
     <Content Include="Views\Admin\EventCreate.cshtml" />
     <Content Include="Views\Admin\EventEdit.cshtml" />
     <Content Include="Views\Admin\EventDelete.cshtml" />
-    <Content Include="Views\Admin\TournyList.cshtml" />
-    <Content Include="Views\Admin\TournyCreate.cshtml" />
-    <Content Include="Views\Admin\TournyDelete.cshtml" />
-    <Content Include="Views\Admin\TournyEdit.cshtml" />
-    <Content Include="Views\Tournament\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
-    <Folder Include="Results\" />
     <Folder Include="TournyFiles\" />
     <Folder Include="upload\" />
     <Folder Include="Views\Event\" />
@@ -491,11 +502,20 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\GolfMigrations\201606171709421_Fix.resx">
-      <DependentUpon>201606171709421_Fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606081654289_Initial Create.resx">
+      <DependentUpon>201606081654289_Initial Create.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\GolfMigrations\201606172148097_adjustTourny.resx">
-      <DependentUpon>201606172148097_adjustTourny.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606131915548_AddMenu.resx">
+      <DependentUpon>201606131915548_AddMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606151711087_ArticleManager.resx">
+      <DependentUpon>201606151711087_ArticleManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606151814135_UpdateArticles.resx">
+      <DependentUpon>201606151814135_UpdateArticles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606201526488_adjustTourny.resx">
+      <DependentUpon>201606201526488_adjustTourny.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
