@@ -61,6 +61,10 @@
                 <li><a href='@Url.Action("Index", "Kitchen")' title="Kitchen & Bar">Kitchen &amp; Bar</a></li>
                 @*<li><a href='@Url.Action("Index", "Gallery")' title="View Gallery">Gallery</a></li>*@
                 <li><a href='#' data-toggle="modal" data-target="#bookTeeTime" title="Make a Reservation">Make a Reservation</a></li>
+                @if (Request.IsAuthenticated)
+                {
+                    <li><a href="@Url.Action("Index", "Admin")">Admin</a></li>
+                }
             </ul>
         </div>
     </div>
