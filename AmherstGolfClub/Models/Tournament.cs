@@ -9,9 +9,9 @@ namespace AmherstGolfClub.Models
 {
     public class Tournament
     {
-        public virtual ICollection<TournamentPlayers> TournamentPlayers { get; set; }
-
         public int TournamentID { get; set; }
+
+        public string Year { get; set; }
 
         [Required]
         [Display(Name = "Tournament")]
