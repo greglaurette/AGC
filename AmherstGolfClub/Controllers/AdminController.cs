@@ -278,5 +278,7 @@ namespace AmherstGolfClub.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
     }
 }

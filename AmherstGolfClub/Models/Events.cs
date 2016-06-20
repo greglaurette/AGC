@@ -20,6 +20,7 @@ namespace AmherstGolfClub.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
+        public string Start { get; set; }
 
         [ForeignKey("EventType")]
         public int Type { get; set; }

@@ -22,13 +22,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.start)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.end)
-        </th>
+        </th>        
         <th></th>
     </tr>
 
@@ -45,13 +39,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.start)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.end)
-        </td>
+        </td>        
         <td>
             @Html.ActionLink("Edit", "EventEdit", new { id=item.EventsID }) |
             @Html.ActionLink("Delete", "EventDelete", new { id=item.EventsID })
