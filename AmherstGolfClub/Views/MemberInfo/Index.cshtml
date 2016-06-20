@@ -32,62 +32,60 @@
                             left: 'prev',
                             center: 'title',
                             right: 'next'
-                            
+
                         },
                         defaultDate: new Date(),
                         defaultView: 'month',
                         events: [
+         @foreach (var item in Model)
         {
-            title: 'Test event',
-            date: '2016-06-17',
-            
-            
-            
-        },
-         {
-             title: 'Test event2',
-             date: '2016-06-17',
-             
-         }],
-                    });
+            <text>
+                {
+                    title: "@(item.EventName)",
+                    date: "@(item.Date)",
+                },
+                </text>
+        }
+                ],
+                });
                 });
             </script>
 
 
         }
-        
-<div id="legend">
-    <div>
-    <span class='label' style='color : #000000'>Category Legend</span>   
-    </div>
-    <span class='label' style='background-color : #FF9900; color : #000000'>Tournament Events</span> 
-    <span class='label' style='background-color : #990033; color : #FFFFFF'>Member Events</span> 
-    <span class='label' style='background-color : #6666CC; color : #FFFFFF'>Corporate Events</span> 
-    <span class='label' style='background-color : #666600; color : #FFFFFF'>Special Events</span> 
-    <span class='label' style='background-color : #00CC00; color : #000000'>Demo Days</span> 
-    </div>
+
+        <div id="legend">
+            <div>
+                <span class='label' style='color : #000000'>Category Legend</span>
+            </div>
+            <span class='label' style='background-color : #FF9900; color : #000000'>Tournament Events</span>
+            <span class='label' style='background-color : #990033; color : #FFFFFF'>Member Events</span>
+            <span class='label' style='background-color : #6666CC; color : #FFFFFF'>Corporate Events</span>
+            <span class='label' style='background-color : #666600; color : #FFFFFF'>Special Events</span>
+            <span class='label' style='background-color : #00CC00; color : #000000'>Demo Days</span>
+        </div>
     </div>
 </div>
-        <div class="container">
-            <div class="col-md-10 col-md-offset-1">
+<div class="container">
+    <div class="col-md-10 col-md-offset-1">
 
-                <hr />
-                <h2 class="text-center">Gift Card Policy</h2>
-                <hr />
-                <p>
-                    1. <strong>"Prize Card"</strong> which will be awarded to any person that wins a prize in club event. This card can be used for any
-                    future purchases in the Kitchen &amp; Bar.
-                </p>
-                <p>
-                    2. <strong>"Gift Card"</strong> will be "sold" and can be usded for anything (membership, carts, food &amp; beverage, pro shop, etc.).
-                </p>
-                <h4>Restrictions</h4>
-                <ol>
-                    <li>Prize cards cannot be used to pay off club accounts.</li>
-                    <li>Prize cards cannoth be used to create a credit on a club account.</li>
-                    <li>Any pro shop merchandise given out as a prize in an event cannot be exchanged for a Prize Card of the same value.</li>
-                    <li>All gift cards (green cards) that are currently issued will be subject to the new "Prize Card" policy.</li>
-                    <li>Prize Cards &amp; Gift Cards cannot be exchanged for cash.</li>
-                </ol>
-            </div>
-        </div>
+        <hr />
+        <h2 class="text-center">Gift Card Policy</h2>
+        <hr />
+        <p>
+            1. <strong>"Prize Card"</strong> which will be awarded to any person that wins a prize in club event. This card can be used for any
+            future purchases in the Kitchen &amp; Bar.
+        </p>
+        <p>
+            2. <strong>"Gift Card"</strong> will be "sold" and can be usded for anything (membership, carts, food &amp; beverage, pro shop, etc.).
+        </p>
+        <h4>Restrictions</h4>
+        <ol>
+            <li>Prize cards cannot be used to pay off club accounts.</li>
+            <li>Prize cards cannoth be used to create a credit on a club account.</li>
+            <li>Any pro shop merchandise given out as a prize in an event cannot be exchanged for a Prize Card of the same value.</li>
+            <li>All gift cards (green cards) that are currently issued will be subject to the new "Prize Card" policy.</li>
+            <li>Prize Cards &amp; Gift Cards cannot be exchanged for cash.</li>
+        </ol>
+    </div>
+</div>
