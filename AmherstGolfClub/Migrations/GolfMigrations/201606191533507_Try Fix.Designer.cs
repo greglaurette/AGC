@@ -7,13 +7,13 @@ namespace AmherstGolfClub.Migrations.GolfMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class adjustTourny : IMigrationMetadata
+    public sealed partial class TryFix : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(adjustTourny));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(TryFix));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606172148097_adjustTourny"; }
+            get { return "201606191533507_Try Fix"; }
         }
         
         string IMigrationMetadata.Source

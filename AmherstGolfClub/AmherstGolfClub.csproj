@@ -228,13 +228,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\GolfMigrations\201606171709421_Fix.cs" />
-    <Compile Include="Migrations\GolfMigrations\201606171709421_Fix.Designer.cs">
-      <DependentUpon>201606171709421_Fix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\GolfMigrations\201606172148097_adjustTourny.cs" />
-    <Compile Include="Migrations\GolfMigrations\201606172148097_adjustTourny.Designer.cs">
-      <DependentUpon>201606172148097_adjustTourny.cs</DependentUpon>
+    <Compile Include="Migrations\GolfMigrations\201606191533507_Try Fix.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606191533507_Try Fix.Designer.cs">
+      <DependentUpon>201606191533507_Try Fix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -491,11 +487,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\GolfMigrations\201606171709421_Fix.resx">
-      <DependentUpon>201606171709421_Fix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\GolfMigrations\201606172148097_adjustTourny.resx">
-      <DependentUpon>201606172148097_adjustTourny.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606191533507_Try Fix.resx">
+      <DependentUpon>201606191533507_Try Fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

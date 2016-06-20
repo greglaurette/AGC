@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<AmherstGolfClub.Models.Events>
+@{
     ViewBag.Title = "Member Information";
 }
 
@@ -31,23 +32,22 @@
                             left: 'prev',
                             center: 'title',
                             right: 'next'
-                            
+
                         },
                         defaultDate: new Date(),
                         defaultView: 'month',
                         events: [
-        {
-            title: 'Test event',
-            date: '2016-06-17',
-            
-            
-            
-        },
-         {
-             title: 'Test event2',
-             date: '2016-06-17',
-             
-         }],
+        @{
+
+            foreach (var item in Model)
+            {
+
+                //title: @Html.DisplayFor(c => item.EventName)
+                //date: @Html.DisplayFor(c => item.Date);
+
+
+            }
+        }],
                     });
                 });
             </script>
