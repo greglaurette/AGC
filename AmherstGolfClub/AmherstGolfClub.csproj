@@ -252,6 +252,10 @@
     <Compile Include="Migrations\GolfMigrations\201606201634450_readdStartonEvents.Designer.cs">
       <DependentUpon>201606201634450_readdStartonEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606201658581_addEventIENum.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606201658581_addEventIENum.Designer.cs">
+      <DependentUpon>201606201658581_addEventIENum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles.cs" />
@@ -490,6 +494,7 @@
     <Content Include="Views\Admin\EventCreate.cshtml" />
     <Content Include="Views\Admin\EventEdit.cshtml" />
     <Content Include="Views\Admin\EventDelete.cshtml" />
+    <Content Include="Views\Admin\EventUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -523,6 +528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\GolfMigrations\201606201634450_readdStartonEvents.resx">
       <DependentUpon>201606201634450_readdStartonEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606201658581_addEventIENum.resx">
+      <DependentUpon>201606201658581_addEventIENum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

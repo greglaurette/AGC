@@ -25,6 +25,8 @@ namespace AmherstGolfClub.Models
         [ForeignKey("EventType")]
         public int Type { get; set; }
 
+        public IEnumerable<Events> Event { get; set; }
+
         public virtual EventType EventType { get; set; }
     }
 }

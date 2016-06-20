@@ -1,0 +1,93 @@
+﻿@model IEnumerable<AmherstGolfClub.Models.Events>
+
+<h2>Event Uploader</h2>
+
+
+@if (Request.IsAuthenticated)
+{
+    if (ViewBag.EventsUploaded == null)
+    {
+        using (Html.BeginForm("EventUpload", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="container">
+                <div class="form-horizontal">
+                    <hr />
+                    <h4>Upload Events</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-2">
+                            <input type="file" id="CSVName"
+                                   name="CSVName" lass="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Update" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                @Html.ActionLink("Admin Home", "Index") | 
+                @Html.ActionLink("Event List", "EventList")
+            </div>
+            <hr />
+        }
+    }
+    else
+    {
+        <h4>@ViewBag.EventsSaved records saved out of @ViewBag.EventsUploaded uploaded</h4>
+
+        <table class="table">
+            <tr>
+                <th>
+                    Event Name
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Start
+                </th>
+                <th>
+                    Description
+                </th>
+
+            </tr>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Start)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+                </tr>
+            }
+        </table>
+        <hr />
+    }
+}
+else
+{
+    <div class="alert alert-danger">
+        <p>You are not authorized to view this page.</p>
+    </div>
+}

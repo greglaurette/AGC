@@ -52,7 +52,7 @@ namespace AmherstGolfClub.Controllers
                         //product.Quantity = csv.GetField<string>(2);
                         //product.SubDepartment = csv.GetField<string>(3);
                         //product.ItemCategory = csv.GetField<string>(4);
-                        product.Price = decimal.Parse(csv.GetField(2));                        
+                        product.Price = decimal.Parse(csv.GetField(2));
                         if (csv.GetField<string>(3) == "" || int.Parse(csv.GetField<string>(3)) < 0)
                             product.Quantity = 0;
                         else
@@ -217,7 +217,7 @@ namespace AmherstGolfClub.Controllers
             {
                 db.Events.Add(events);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EventList");
             }
 
             ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type", events.Type);
@@ -238,7 +238,7 @@ namespace AmherstGolfClub.Controllers
             ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type", events.Type);
             return View(events);
         }
-                
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EventEdit([Bind(Include = "EventsID,EventName,Description,Date,start,end,Type")] Events events)
@@ -247,13 +247,13 @@ namespace AmherstGolfClub.Controllers
             {
                 db.Entry(events).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EventList");
             }
             ViewBag.Type = new SelectList(db.EventTypes, "EventTypeID", "Type", events.Type);
             return View(events);
         }
 
-        
+
         public ActionResult EventDelete(int? id)
         {
             if (id == null)
@@ -276,9 +276,89 @@ namespace AmherstGolfClub.Controllers
             Events events = db.Events.Find(id);
             db.Events.Remove(events);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("EventList");
         }
 
+        public ActionResult EventUpload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EventUpload(HttpPostedFileBase CSVName)
+        {
+            string path = null;
+            var EventsToDisplay = new List<Events>();
+            try
+            {
+                if (CSVName.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(CSVName.FileName);
+                    path = AppDomain.CurrentDomain.BaseDirectory + "upload\\" + fileName;
+                    CSVName.SaveAs(path);
+
+                    var csv = new CsvReader(new StreamReader(path));
+                    var db = new GolfContext();
+                    db.Database.ExecuteSqlCommand("Delete from Events");
+                    db.Database.ExecuteSqlCommand("DBCC CHECKIDENT (Events, RESEED, 0);");
+                    int count = 0;
+
+                    while (csv.Read())
+                    {
+                        Events events = new Events();
+                        events.EventName = csv.GetField<string>(0);
+                        //DateTime dateCheck = csv.GetField<DateTime>(1);
+                        //string dateString = dateCheck.ToString("yyyy-MM-dd");
+                        //DateTime date = DateTime.ParseExact(dateString, "yyyy-MM-dd", null);
+                        events.Date = csv.GetField<DateTime>(1).Date;
+                        string type = csv.GetField<string>(2);
+                        switch (type)
+                        {
+                            case "Tournament Events":
+                                events.Type = 1;
+                                break;
+                            case "Public Events":
+                                events.Type = 8;
+                                break;
+                            case "Member Events":
+                                events.Type = 2;
+                                break;
+                            case "Corporate Events":
+                                events.Type = 3;
+                                break;
+                            case "Wedding Events":
+                                events.Type = 6;
+                                break;
+                            case "Special Events":
+                                events.Type = 7;
+                                break;
+                            case "Demo Days":
+                                events.Type = 5;
+                                break;
+                            default:
+                                events.Type = int.Parse(type);
+                                break;
+                        }
+                        events.Start = csv.GetField<string>(3);
+                        EventsToDisplay.Add(events);
+                        var exists = db.Events.Where(i => i.EventsID == events.EventsID).SingleOrDefault();
+                        if (exists == null)
+                        {
+                            db.Events.Add(events);
+                            db.SaveChanges();
+                            count += 1;                            
+                        }
+                    }
+                    ViewBag.EventsUploaded = EventsToDisplay.Count();
+                    ViewBag.EventsSaved = count;
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+            return View(EventsToDisplay);
+        }
 
     }
 }
