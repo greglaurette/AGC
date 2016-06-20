@@ -9,9 +9,9 @@ namespace AmherstGolfClub.Models
 {
     public class Tournament
     {
-        public int TournamentID { get; set; }    
+        public virtual ICollection<TournamentPlayers> TournamentPlayers { get; set; }
 
-        public string Year { get; set; }
+        public int TournamentID { get; set; }
 
         [Required]
         [Display(Name = "Tournament")]
@@ -22,6 +22,9 @@ namespace AmherstGolfClub.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime TournamentDate { get; set; }
+
+        //[Display(Name = "File Name")]
+        //public File FileName { }
 
     }
 }
