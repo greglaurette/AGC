@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<AmherstGolfClub.Models.Tournament>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tournaments";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<hr />
+<h2 class="text-center">Tournaments</h2>
+<hr />
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.TournamentName)
         </th>
@@ -20,20 +20,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TournamentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TournamentDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TournamentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TournamentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TournamentID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TournamentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TournamentDate)
+            </td>
+            <td>
+                @if (item.FileName != null)
+                {
+                    <a href="~/Results/@item.FileName">Results</a>
+                }
+                else
+                {
+                    <span>Results</span>
+                }
+
+            </td>
+
+        </tr>
+    }
 
 </table>
+<hr />

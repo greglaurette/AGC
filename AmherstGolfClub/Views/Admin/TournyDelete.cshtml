@@ -1,0 +1,61 @@
+﻿@model AmherstGolfClub.Models.Tournament
+
+@{
+    ViewBag.Title = "TournyDelete";
+}
+@if (Request.IsAuthenticated)
+{
+    <hr />
+    <h2 class="text-center">Delete @Model.TournamentName</h2>
+    <hr />
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Year)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Year)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TournamentName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TournamentName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TournamentDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TournamentDate)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" />
+            </div>
+        }
+    </div>
+    <hr />
+    <div>
+        @Html.ActionLink("Admin Home", "Index") |
+        @Html.ActionLink("Tourny List", "TournyList")
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <p>You are not authorized to view this page.</p>
+    </div>
+}
+<hr />

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AmherstGolfClub.Models.Tournament>
+
+@{
+    ViewBag.Title = "TournyList";
+}
+@if (Request.IsAuthenticated)
+{
+    <hr />
+    <h2>Tournament List</h2>
+    <hr />
+    <p>
+        @Html.ActionLink("Create Tourny", "TournyCreate")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TournamentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TournamentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TournamentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TournamentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "TournyEdit", new { id = item.TournamentID }) |
+                    @Html.ActionLink("Delete", "TournyDelete", new { id = item.TournamentID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        @Html.ActionLink("Admin Home", "Index")
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <p>You are not authorized to view this page.</p>
+    </div>
+}
+<hr />

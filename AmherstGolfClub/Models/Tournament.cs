@@ -23,8 +23,8 @@ namespace AmherstGolfClub.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime TournamentDate { get; set; }
 
-        //[Display(Name = "File Name")]
-        //public File FileName { }
+        [Display(Name = "File Name")]
+        public string FileName { get; set; }
 
     }
 }
