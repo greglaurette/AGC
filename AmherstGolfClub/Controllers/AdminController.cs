@@ -438,6 +438,31 @@ namespace AmherstGolfClub.Controllers
             }
             return View(tournament);
         }
+        public ActionResult TournyUpload()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult TournyUpload(HttpPostedFileBase ResultFile)
+        {
+            string path = null;            
+            try
+            {
+                if (ResultFile.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(ResultFile.FileName);
+                    path = AppDomain.CurrentDomain.BaseDirectory + "Tournaments\\" + fileName;
+                    ViewBag.Uploaded = "Success";
+                    ResultFile.SaveAs(path);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+
+            return View();
+        }
     }
 }

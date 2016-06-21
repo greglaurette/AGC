@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -42,7 +43,9 @@
             <ul id="menu-content" class="menu-content collapse out">
                 <li><a href='@Url.Action("About", "Home")' title="About us">About</a></li>
                 <li><a href='@Url.Action("Contact", "Home")' title="Contact">Contact</a></li>
-
+                <li><a href='@Url.Action("Index", "MemberInfo")' title="Member Information">Member Information</a></li>
+                <li><a href='@Url.Action("Index", "Tournament")' title="Tournaments">Tournaments</a></li>
+                <li><a href='@Url.Action("Index", "Youth")' title="Youth Programs">Youth Programs</a></li>
                 <li data-toggle="collapse" data-target="#products" class="collapsed">
                     <a href="#">Rates <span class="arrow"></span></a>
 
@@ -55,17 +58,27 @@
                     </ul>
                 </li>
                 <li><a href='@Url.Action("Index", "ProShop")' title="Pro Shop">Pro Shop</a></li>
-                @*<li><a href='@Url.Action("Index", "Tournament")' title="Tournaments">Tournaments</a></li>*@
-                <li><a href='@Url.Action("Index", "MemberInfo")' title="Member Information">Member Information</a></li>
-                <li><a href='@Url.Action("Index", "Youth")' title="Youth Programs">Youth Programs</a></li>
                 <li><a href='@Url.Action("Index", "Kitchen")' title="Kitchen & Bar">Kitchen &amp; Bar</a></li>
                 @*<li><a href='@Url.Action("Index", "Gallery")' title="View Gallery">Gallery</a></li>*@
                 <li><a href='#' data-toggle="modal" data-target="#bookTeeTime" title="Make a Reservation">Make a Reservation</a></li>
                 @if (Request.IsAuthenticated)
                 {
-                    <li><a href="@Url.Action("Index", "Admin")">Admin</a></li>
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <li><a href="@Url.Action("Index", "Admin")">Admin</a></li>
+                        <li>
+                            @Html.ActionLink("Change Password", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    }
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                 }
             </ul>
+
         </div>
     </div>
     <div class="container body-content">
