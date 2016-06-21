@@ -256,6 +256,10 @@
     <Compile Include="Migrations\GolfMigrations\201606201658581_addEventIENum.Designer.cs">
       <DependentUpon>201606201658581_addEventIENum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606211502406_updatingTournyAgain.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606211502406_updatingTournyAgain.Designer.cs">
+      <DependentUpon>201606211502406_updatingTournyAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles.cs" />
@@ -449,59 +453,40 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Kitchen\Index.cshtml" />
     <Content Include="Views\MemberInfo\Index.cshtml" />
-    <Content Include="Views\Reserv\Index.cshtml" />
-    <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\ProShop\Index.cshtml" />
     <Content Include="Views\Rates\ShopRentals.cshtml" />
     <Content Include="Views\Rates\Membership.cshtml" />
     <Content Include="Views\Rates\GeneralRates.cshtml" />
     <Content Include="Views\Rates\Corp.cshtml" />
     <Content Include="Views\Manage\UserInfo.cshtml" />
-    <Content Include="Views\Tournament\Details.cshtml" />
     <Content Include="Views\Tournament\Index.cshtml" />
-    <Content Include="Views\Tournament\Create.cshtml" />
-    <Content Include="Views\Tournament\Delete.cshtml" />
-    <Content Include="Views\Tournament\Edit.cshtml" />
-    <Content Include="Views\ProShop\Create.cshtml" />
-    <Content Include="Views\ProShop\Delete.cshtml" />
-    <Content Include="Views\ProShop\Details.cshtml" />
-    <Content Include="Views\ProShop\Edit.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Success.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\ProShop\_CategoryMenuPartial.cshtml" />
-    <Content Include="Views\Kitchen\Create.cshtml" />
-    <Content Include="Views\Kitchen\Delete.cshtml" />
-    <Content Include="Views\Kitchen\Details.cshtml" />
-    <Content Include="Views\Kitchen\Edit.cshtml" />
     <Content Include="Views\Admin\MenuCreate.cshtml" />
     <Content Include="Views\Admin\ViewMenu.cshtml" />
     <Content Include="Views\Admin\MenuEdit.cshtml" />
     <Content Include="Views\Admin\MenuDelete.cshtml" />
     <Content Include="Views\Admin\ArticleList.cshtml" />
     <Content Include="Views\Admin\EditArticle.cshtml" />
-    <Content Include="Views\Youth\Create.cshtml" />
-    <Content Include="Views\Youth\Delete.cshtml" />
-    <Content Include="Views\Youth\Details.cshtml" />
-    <Content Include="Views\Youth\Edit.cshtml" />
     <Content Include="Views\Youth\Index.cshtml" />
-    <Content Include="Views\Events\Create.cshtml" />
-    <Content Include="Views\Events\Delete.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
-    <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Admin\EventList.cshtml" />
     <Content Include="Views\Admin\EventCreate.cshtml" />
     <Content Include="Views\Admin\EventEdit.cshtml" />
     <Content Include="Views\Admin\EventDelete.cshtml" />
     <Content Include="Views\Admin\EventUpload.cshtml" />
+    <Content Include="Views\Admin\TournyCreate.cshtml" />
+    <Content Include="Views\Admin\TournyList.cshtml" />
+    <Content Include="Views\Admin\TournyEdit.cshtml" />
+    <Content Include="Views\Admin\TournyDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
     <Folder Include="TournyFiles\" />
     <Folder Include="upload\" />
-    <Folder Include="Views\Event\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -531,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\GolfMigrations\201606201658581_addEventIENum.resx">
       <DependentUpon>201606201658581_addEventIENum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606211502406_updatingTournyAgain.resx">
+      <DependentUpon>201606211502406_updatingTournyAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

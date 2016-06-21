@@ -359,6 +359,85 @@ namespace AmherstGolfClub.Controllers
             }
             return View(EventsToDisplay);
         }
+        public ActionResult TournyList()
+        {
+            var tourny = db.Tournaments.ToList();
+            return View(tourny);
+        }
+
+        public ActionResult TournyCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TournyCreate([Bind(Include = "TournamentID,TournamentName,TournamentDate,Year,FileName")] Tournament tourney)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Tournaments.Add(tourney);
+                db.SaveChanges();
+                return RedirectToAction("TournyList");
+            }
+
+            return View(tourney);
+        }
+
+        public ActionResult TournyDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Tournament tourney = db.Tournaments.Find(id);
+            if (tourney == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tourney);
+        }
+
+        // POST: Product/Delete/5
+        [HttpPost, ActionName("TournyDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult TournyDeleteConfirmed(int id)
+        {
+            Tournament tourney = db.Tournaments.Find(id);
+            db.Tournaments.Remove(tourney);
+            db.SaveChanges();
+            return RedirectToAction("TournyList");
+        }
+
+        public ActionResult TournyEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Tournament tournament = db.Tournaments.Find(id);
+            if (tournament == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tournament);
+        }
+
+        // POST: Product/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TournyEdit([Bind(Include = "TournamentID,TournamentName,TournamentDate,Year,FileName")] Tournament tournament)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(tournament).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("TournyList");
+            }
+            return View(tournament);
+        }
 
     }
 }
