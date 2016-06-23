@@ -22,10 +22,7 @@
 }
 
 /*******WILLS CSS*********/
-#fullcalendar{
-    
-    
-}
+
 
 .fc-toolbar{
     background-color:black;
@@ -33,7 +30,13 @@
     margin-bottom:0px;
     
 }
-
+.fc-day-grid-event .fc-time {
+    display:none;
+	
+}
+.fc-event:hover .fc-title{
+    display:none;
+}
 .fc-widget-header-center{
     text-decoration-color:brown;
 }

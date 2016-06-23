@@ -37,7 +37,7 @@
                         defaultDate: new Date(),
                         defaultView: 'month',
                         eventMouseover: function (calEvent, domEvent) {
-                            var layer = "<div id='events-layer' class='fc-transparent' style='position:absolute; width:100%; height:100%; top:-1px; text-align:right; z-index:100;></div>";
+                            var layer = '<div id="events-layer" class="fc-transparent" style="position:right; width:100%; height:100%; top:-1px; text-align:left; z-index:100;">' + calEvent.note + '</div>';
 
                             $(this).append(layer);
                         },
@@ -45,31 +45,29 @@
                         eventMouseout: function (calEvent, domEvent) {
                             $(this).find('div[id*=events-layer]').remove();
                         },
+                        eventLimit: true,
                         events: [
          @foreach (var item in Model)
-        {
+         {
+
+
+
+
             <text>
                 {
 
                     title: "@(item.EventName)",
-                    start: "@(item.Date)",
-                    @*if((@item.EventType).Equals("Tournament"))
-                        {
-                            backgroundColor: '#990033'
-                        }
-                    else
-                    {
-                        backgroundColor: '#FF9900'
-                    }*@
-                    
-
+                    date: '@(item.Date)',
+                    note: '@(item.Start) @(item.Description)',
+                    backgroundColor: '#FF9900',
+                    textColor: 'black',
 
                 },
-                </text>
+             </text>
 
         }
-                ],
-                });
+                        ],
+                    });
                 });
             </script>
 
@@ -84,7 +82,11 @@
             <span class='label' style='background-color : #990033; color : #FFFFFF'>Member Events</span>
             <span class='label' style='background-color : #6666CC; color : #FFFFFF'>Corporate Events</span>
             <span class='label' style='background-color : #666600; color : #FFFFFF'>Special Events</span>
-            <span class='label' style='background-color : #00CC00; color : #000000'>Demo Days</span>
+            <span class='label' style='background-color : #00CC00; color : #000000'>Demo Events</span>
+            <span class='label' style='background-color : #b200ff; color : #FFFFFF'>Wedding Events</span>
+            <span class='label' style='background-color : #00ffff; color : #000000'>Social Events</span>
+            <span class='label' style='background-color : #808080; color : #FFFFFF'>Public Events</span>
+            <span class='label' style='background-color : #b6ff00; color : #000000'>Golf Events</span>
         </div>
     </div>
 </div>
