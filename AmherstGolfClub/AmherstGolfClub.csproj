@@ -481,10 +481,12 @@
     <Content Include="Views\Admin\TournyList.cshtml" />
     <Content Include="Views\Admin\TournyEdit.cshtml" />
     <Content Include="Views\Admin\TournyDelete.cshtml" />
+    <Content Include="Views\Admin\TournyUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
+    <Folder Include="Tournaments\" />
     <Folder Include="TournyFiles\" />
     <Folder Include="upload\" />
   </ItemGroup>
