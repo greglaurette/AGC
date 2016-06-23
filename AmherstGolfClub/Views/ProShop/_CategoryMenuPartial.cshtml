@@ -1,14 +1,12 @@
 ﻿@{
     IEnumerable<AmherstGolfClub.Models.Product> list = new AmherstGolfClub.DAL.GolfContext().Products;
-    int count = 0;
-    String[] CategoryHolder = new String[count];
+    
 
     foreach (var item in list)
     {
         if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
         {
-            CategoryHolder[count] = item.ItemCategory;
-            count++;
+            
         
             <li>@Html.ActionLink(item.ItemCategory, "Index", new { name = item.ItemCategory })</li>
         }

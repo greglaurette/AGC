@@ -619,17 +619,19 @@ be a descendant of the grid when it is being dragged.
 	margin: 1px 2px 0; /* spacing between events and edges */
 	padding: 0 1px;
 }
-
-
+/*.fc-day-grid-event .fc-content .fc-title:hover{
+    display:none;
+}*/
+/*.fc-event:hover .fc-time {
+    visibility:visible;
+}*/
+ 
 .fc-day-grid-event .fc-content { /* force events to be one-line tall */
 	white-space: nowrap;
 	overflow: hidden;
 }
 
-.fc-day-grid-event .fc-time {
 
-	display:none;
-}
 
 .fc-day-grid-event .fc-resizer { /* enlarge the default hit area */
 	left: -3px;
