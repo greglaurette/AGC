@@ -22,6 +22,9 @@
 }
 
 /*******WILLS CSS*********/
+#event-layer{
+    display:block;
+}
 
 
 .fc-toolbar{
@@ -34,6 +37,8 @@
     display:none;
 	
 }
+/*.fc-day .fc-widget-content .fc-sun .fc-past*/ 
+/*#events-layer{}*/
 .fc-event:hover .fc-title{
     display:none;
 }
