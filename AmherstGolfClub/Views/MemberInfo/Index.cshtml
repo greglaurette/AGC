@@ -28,7 +28,7 @@
             <script type="text/javascript">
                 $(function () {
                     $('#fullcalendar').fullCalendar({
-                        height: 700,
+                        height: 1000,
                         
                         header: {
                             left: 'prev',
@@ -55,6 +55,8 @@
                             $(this).find('div[id*=events-layer]').remove();
                         },
                         
+
+
                         events: [
          @foreach (var item in Model)
          {

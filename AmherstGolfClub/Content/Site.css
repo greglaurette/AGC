@@ -29,8 +29,11 @@
 /*.fc-agenda-slots td div {
      height: 35px;
 }*/
-.fc-month-view tr {
-    height: 35px;
+/*.fc-month-view th {
+    height: 50px;
+}*/
+.fc-content-skeleton {
+    height: 10em;
 }
 
 
