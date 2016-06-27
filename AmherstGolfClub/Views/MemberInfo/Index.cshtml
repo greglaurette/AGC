@@ -28,7 +28,8 @@
             <script type="text/javascript">
                 $(function () {
                     $('#fullcalendar').fullCalendar({
-                        height:500,
+                        height: 700,
+                        
                         header: {
                             left: 'prev',
                             center: 'title',
@@ -37,12 +38,12 @@
                         },
                         defaultDate: new Date(),
                         defaultView: 'month',
-                        eventResizeStart: function () { tooltip.hide() },
+                       
                         eventMouseover: function (calEvent, domEvent) {
                             var layer = '<div id="events-layer" class="fc-transparent" style=" width:100%; height:100%; text-align:left; ">'
                                 + '<p>'+'Name: ' + calEvent.title+'</p>'
                                 + '<p>' + 'Start: ' + calEvent.note + '</p>'
-                                + '<p>' + 'End: ' + ""+ '</p>'//calEvent.note3
+                                + '<p>' + 'End: ' + calEvent.note3 + '</p>'
                                 + '<p>' + 'Description: ' + calEvent.note2+ '</p>'
                                 +'</div>';
 
@@ -53,16 +54,7 @@
                         eventMouseout: function (calEvent, domEvent) {
                             $(this).find('div[id*=events-layer]').remove();
                         },
-                        eventClick: function (calEvent, jsEvent, view) {
-                            alert('Event Name: ' + calEvent.title
-                                + '\nEvent Start: ' + calEvent.note
-                                + '\nEvent End: '
-                                + '\nEvent Description: ' + calEvent.note2);
-                            
-                           
-                        },
                         
-                       
                         events: [
          @foreach (var item in Model)
          {
@@ -78,8 +70,82 @@
                     note: '@(item.Start)',
                     note2: ' @(item.Description)',
                     note3: '',//item.end
+                    @if (item.Type.Equals(1))
+                    {
+                        <text>
                     backgroundColor: '#FF9900',
                     textColor: 'black',
+                    </text>
+
+                        }
+                   
+                    @if (item.Type.Equals(2))
+                        {
+                            <text>
+                    backgroundColor: '#990033',
+                            textColor: 'white',
+                            </text>
+
+                        }
+                     @if (item.Type.Equals(3))
+                         {
+                             <text>
+                    backgroundColor: '#6666CC',
+                             textColor: 'white',
+                             </text>
+
+                         }
+                     @if (item.Type.Equals(4))
+                         {
+                             <text>
+                    backgroundColor: '#666600',
+                             textColor: 'white',
+                             </text>
+
+                         }
+                     @if (item.Type.Equals(5))
+                         {
+                             <text>
+                    backgroundColor: '#00CC00',
+                             textColor: 'black',
+                             </text>
+
+                         }
+                     @if (item.Type.Equals(6))
+                         {
+                             <text>
+                    backgroundColor: '#b200ff',
+                             textColor: 'white',
+                             </text>
+
+                         }
+                     @if (item.Type.Equals(7))
+                         {
+                             <text>
+                    backgroundColor: '#00ffff',
+                             textColor: 'black',
+                             </text>
+
+                         }
+                     @if (item.Type.Equals(8))
+                         {
+                             <text>
+                    backgroundColor: '#808080',
+                             textColor: 'white',
+                             </text>
+
+                         }
+                     @if (item.Type.Equals(9))
+                         {
+                             <text>
+                    backgroundColor: '#b6ff00',
+                             textColor: 'black',
+                             </text>
+
+                         }
+
+                    
+                    
 
                 },
              </text>

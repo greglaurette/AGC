@@ -24,6 +24,13 @@
 /*******WILLS CSS*********/
 #event-layer{
     display:block;
+
+}
+/*.fc-agenda-slots td div {
+     height: 35px;
+}*/
+.fc-month-view tr {
+    height: 35px;
 }
 
 
