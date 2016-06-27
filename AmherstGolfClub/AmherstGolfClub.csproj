@@ -475,7 +475,6 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Success.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
-    <Content Include="Views\ProShop\_CategoryMenuPartial.cshtml" />
     <Content Include="Views\Admin\MenuCreate.cshtml" />
     <Content Include="Views\Admin\ViewMenu.cshtml" />
     <Content Include="Views\Admin\MenuEdit.cshtml" />

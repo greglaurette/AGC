@@ -13,7 +13,23 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span> </a>
         <ul class="dropdown-menu">
 
-            @Html.Partial("_CategoryMenuPartial")
+            @{//Filter code 
+                IEnumerable<AmherstGolfClub.Models.Product> list = new AmherstGolfClub.DAL.GolfContext().Products;
+
+
+                foreach (var item in list)
+                {
+                    if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
+                    {
+
+
+                        <li>@Html.ActionLink(item.ItemCategory, "Index", new { name = item.ItemCategory })</li>
+                    }
+
+                }
+                <li>@Html.ActionLink("All categories", "Index")</li>
+
+            }
         </ul>
     </div>     
     <div class="form-inline">
