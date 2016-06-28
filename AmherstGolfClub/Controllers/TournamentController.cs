@@ -21,6 +21,13 @@ namespace AmherstGolfClub.Controllers
             return View(db.Tournaments.ToList());
         }
 
+        public ActionResult TournyDraw(int id)
+        {
+            
+            var tourny = db.TournamentDraws.Where(i => i.TournamentID == id).ToList().OrderBy(i=>i.TeeTime);
+            return View(tourny);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

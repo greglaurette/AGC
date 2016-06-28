@@ -10,12 +10,12 @@ namespace AmherstGolfClub.Models
     public class Tournament
     {
         public int TournamentID { get; set; }
-
-        public string Year { get; set; }
-
+        
         [Required]
         [Display(Name = "Tournament")]
         public string TournamentName { get; set; }
+
+        public string Year { get; set; }
 
         [Required]
         [Display(Name = "Date")]

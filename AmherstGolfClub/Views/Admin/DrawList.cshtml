@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AmherstGolfClub.Models.TournamentDraw>
+
+@{
+    ViewBag.Title = "DrawList";
+}
+@if (Request.IsAuthenticated)
+{
+    <hr />
+    <h2 class="text-center">Draw List</h2>
+    <hr />
+    <p>
+        @Html.ActionLink("Create Draw Time", "DrawCreate")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournaments.TournamentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeeTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GolfOne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GolfTwo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GolfThree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GolfFour)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tournaments.TournamentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeeTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GolfOne)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GolfTwo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GolfThree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GolfFour)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "DrawEdit", new { id = item.TouramentDrawID }) |
+                    @Html.ActionLink("Delete", "DrawDelete", new { id = item.TouramentDrawID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <hr />
+    <div>
+        @Html.ActionLink("Admin Home", "Index")
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <p>You are not authorized to view this page.</p>
+    </div>
+}
+
+<hr />

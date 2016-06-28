@@ -464,5 +464,93 @@ namespace AmherstGolfClub.Controllers
 
             return View();
         }
+
+        public ActionResult DrawList()
+        {
+            var tournamentDraws = db.TournamentDraws.Include(t => t.Tournaments);
+            return View(tournamentDraws.ToList());
+        }
+        public ActionResult DrawCreate()
+        {
+            ViewBag.TournamentID = new SelectList(db.Tournaments, "TournamentID", "TournamentName");
+            return View();
+        }
+
+        // POST: TournamentDraws/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DrawCreate([Bind(Include = "TouramentDrawID,TournamentID,TeeTime,GolfOne,GolfTwo,GolfThree,GolfFour")] TournamentDraw tournamentDraw)
+        {
+            if (ModelState.IsValid)
+            {
+                db.TournamentDraws.Add(tournamentDraw);
+                db.SaveChanges();
+                return RedirectToAction("DrawList");
+            }
+
+            ViewBag.TournamentID = new SelectList(db.Tournaments, "TournamentID", "TournamentName", tournamentDraw.TournamentID);
+            return View(tournamentDraw);
+        }
+
+        // GET: TournamentDraws/Edit/5
+        public ActionResult DrawEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TournamentDraw tournamentDraw = db.TournamentDraws.Find(id);
+            if (tournamentDraw == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.TournamentID = new SelectList(db.Tournaments, "TournamentID", "TournamentName", tournamentDraw.TournamentID);
+            return View(tournamentDraw);
+        }
+
+        // POST: TournamentDraws/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DrawEdit([Bind(Include = "TouramentDrawID,TournamentID,TeeTime,GolfOne,GolfTwo,GolfThree,GolfFour")] TournamentDraw tournamentDraw)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(tournamentDraw).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("DrawList");
+            }
+            ViewBag.TournamentID = new SelectList(db.Tournaments, "TournamentID", "TournamentName", tournamentDraw.TournamentID);
+            return View(tournamentDraw);
+        }
+
+        // GET: TournamentDraws/Delete/5
+        public ActionResult DrawDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TournamentDraw tournamentDraw = db.TournamentDraws.Find(id);
+            if (tournamentDraw == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tournamentDraw);
+        }
+
+        // POST: TournamentDraws/Delete/5
+        [HttpPost, ActionName("DrawDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            TournamentDraw tournamentDraw = db.TournamentDraws.Find(id);
+            db.TournamentDraws.Remove(tournamentDraw);
+            db.SaveChanges();
+            return RedirectToAction("DrawList");
+        }
     }
 }

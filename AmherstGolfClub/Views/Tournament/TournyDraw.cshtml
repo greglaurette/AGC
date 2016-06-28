@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AmherstGolfClub.Models.TournamentDraw>
+
+@{
+    ViewBag.Title = "TournyDraw";
+}
+<hr />
+<h2 class="text-center">Draw</h2>
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeeTime)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeeTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GolfOne)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GolfTwo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GolfThree)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GolfFour)
+        </td>
+        
+    </tr>
+}
+
+</table>
+
+<hr />

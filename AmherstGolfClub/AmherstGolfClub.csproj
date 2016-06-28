@@ -223,6 +223,7 @@
     <Compile Include="Controllers\ProShopController.cs" />
     <Compile Include="Controllers\RatesController.cs" />
     <Compile Include="Controllers\TournamentController.cs" />
+    <Compile Include="Controllers\TournamentDrawsController.cs" />
     <Compile Include="Controllers\YouthController.cs" />
     <Compile Include="DAL\GolfContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -276,6 +277,18 @@
     <Compile Include="Migrations\GolfMigrations\201606281617070_revert0628.Designer.cs">
       <DependentUpon>201606281617070_revert0628.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606281624331_addDraws.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606281624331_addDraws.Designer.cs">
+      <DependentUpon>201606281624331_addDraws.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606281651547_adjusttournycolum.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606281651547_adjusttournycolum.Designer.cs">
+      <DependentUpon>201606281651547_adjusttournycolum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606281729023_removeIcollect.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606281729023_removeIcollect.Designer.cs">
+      <DependentUpon>201606281729023_removeIcollect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles.cs" />
@@ -290,6 +303,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Rates.cs" />
     <Compile Include="Models\Tournament.cs" />
+    <Compile Include="Models\TournamentDraw.cs" />
     <Compile Include="Models\TournamentPlayers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -497,6 +511,11 @@
     <Content Include="Views\Admin\TournyEdit.cshtml" />
     <Content Include="Views\Admin\TournyDelete.cshtml" />
     <Content Include="Views\Admin\TournyUpload.cshtml" />
+    <Content Include="Views\Tournament\TournyDraw.cshtml" />
+    <Content Include="Views\Admin\DrawList.cshtml" />
+    <Content Include="Views\Admin\DrawCreate.cshtml" />
+    <Content Include="Views\Admin\DrawEdit.cshtml" />
+    <Content Include="Views\Admin\DrawDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -549,6 +568,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\GolfMigrations\201606281617070_revert0628.resx">
       <DependentUpon>201606281617070_revert0628.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606281624331_addDraws.resx">
+      <DependentUpon>201606281624331_addDraws.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606281651547_adjusttournycolum.resx">
+      <DependentUpon>201606281651547_adjusttournycolum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606281729023_removeIcollect.resx">
+      <DependentUpon>201606281729023_removeIcollect.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
