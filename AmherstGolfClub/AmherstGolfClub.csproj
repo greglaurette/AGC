@@ -272,6 +272,10 @@
     <Compile Include="Migrations\GolfMigrations\201606231629243_readdyear.Designer.cs">
       <DependentUpon>201606231629243_readdyear.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606281617070_revert0628.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606281617070_revert0628.Designer.cs">
+      <DependentUpon>201606281617070_revert0628.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles.cs" />
@@ -497,6 +501,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
+    <Folder Include="Migrations\GolfMigrations\201606281616471_revert06\" />
     <Folder Include="Tournaments\" />
     <Folder Include="TournyFiles\" />
     <Folder Include="upload\" />
@@ -541,6 +546,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\GolfMigrations\201606231629243_readdyear.resx">
       <DependentUpon>201606231629243_readdyear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606281617070_revert0628.resx">
+      <DependentUpon>201606281617070_revert0628.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
