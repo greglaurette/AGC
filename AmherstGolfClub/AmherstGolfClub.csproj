@@ -223,6 +223,7 @@
     <Compile Include="Controllers\ProShopController.cs" />
     <Compile Include="Controllers\RatesController.cs" />
     <Compile Include="Controllers\TournamentController.cs" />
+    <Compile Include="Controllers\TournamentDrawsController.cs" />
     <Compile Include="Controllers\YouthController.cs" />
     <Compile Include="DAL\GolfContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -272,6 +273,10 @@
     <Compile Include="Migrations\GolfMigrations\201606231629243_readdyear.Designer.cs">
       <DependentUpon>201606231629243_readdyear.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\GolfMigrations\201606281534038_DrawsSection.cs" />
+    <Compile Include="Migrations\GolfMigrations\201606281534038_DrawsSection.Designer.cs">
+      <DependentUpon>201606281534038_DrawsSection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GolfMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles.cs" />
@@ -285,6 +290,7 @@
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Rates.cs" />
+    <Compile Include="Models\TournamentDraw.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\TournamentPlayers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -493,6 +499,11 @@
     <Content Include="Views\Admin\TournyEdit.cshtml" />
     <Content Include="Views\Admin\TournyDelete.cshtml" />
     <Content Include="Views\Admin\TournyUpload.cshtml" />
+    <Content Include="Views\TournamentDraws\Create.cshtml" />
+    <Content Include="Views\TournamentDraws\Delete.cshtml" />
+    <Content Include="Views\TournamentDraws\Details.cshtml" />
+    <Content Include="Views\TournamentDraws\Edit.cshtml" />
+    <Content Include="Views\TournamentDraws\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -541,6 +552,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\GolfMigrations\201606231629243_readdyear.resx">
       <DependentUpon>201606231629243_readdyear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\GolfMigrations\201606281534038_DrawsSection.resx">
+      <DependentUpon>201606281534038_DrawsSection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

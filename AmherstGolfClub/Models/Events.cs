@@ -28,5 +28,6 @@ namespace AmherstGolfClub.Models
         public IEnumerable<Events> Event { get; set; }
 
         public virtual EventType EventType { get; set; }
+        
     }
 }
