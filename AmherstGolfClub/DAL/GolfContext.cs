@@ -19,7 +19,7 @@ namespace AmherstGolfClub.DAL
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<MenuCategory> MenuCategories { get; set; }
         public DbSet<Articles> Article { get; set; }
-        public DbSet<TournamentDraw> TournamentDraws { get; set; }
+        //public DbSet<TournamentDraw> TournamentDraws { get; set; }
 
 
     }
