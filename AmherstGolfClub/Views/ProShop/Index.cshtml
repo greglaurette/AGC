@@ -14,7 +14,7 @@
         <ul class="dropdown-menu">
 
             @* /////////////////////////////////////////////////////////////////////////////////////////////////////// *@
-            @{//Filter code
+            @{ 
                 IEnumerable<AmherstGolfClub.Models.Product> list = new AmherstGolfClub.DAL.GolfContext().Products;
                 int count = 0;
                 foreach (var item1 in list)
@@ -25,28 +25,42 @@
                     }
                 }
 
+
                 string[] filter = new string[count];
-
-
-
-                foreach (var item2 in list)
+                bool fix = true;
+                foreach (var item3 in list)
                 {
-                    for (int row = 0; row <= count; row++)
+                    if (item3.Quantity > 0 && item3.SubDepartment != "Food & Beverage")
                     {
-                        if (item2.Quantity > 0 && item2.SubDepartment != "Food & Beverage")
+                        for (int row = 0; row <= count; row++)
                         {
-                            //if (filter[row] != item2.ItemCategory)
-                            //{
-                            //filter[row] = (item2.ItemCategory);
-                            //}
 
-                        }//////breaks here
+                            for (int cut = 0; cut <= row; cut++)
+                            {
+                                if(filter[cut] == item3.ItemCategory)
+                                {
+                                    fix = false;
+                                }
+                            }
+                            if (fix == true)
+                            {
+                                filter[row] = item3.ItemCategory;
+                            }
+                            else
+                            {
+                                filter[row] = null;
+                            }
+                        }
+
+
+
                     }
 
 
                 }
 
-                bool newItem = true;
+
+                bool newItem = true;//control variable 
                 foreach (var item in list)
                 {
                     if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
@@ -55,26 +69,28 @@
                         {
                             if (newItem == true)
                             {
-                                //if (item.ItemCategory != filter[row])
-                                //{
-                                //    newItem = true;
-                                //}
-                                //if (item.ItemCategory == filter[row])
-                                //{
-                                //    newItem = false;
-                                //}
+                                if (item.ItemCategory != filter[row])
+                                {
+
+                                    newItem = true;
+                                }
+                                if (item.ItemCategory == filter[row])
+                                {
+                                    newItem = false;
+                                }
                             }
                         }
                         if (newItem == true)
                         {
                           < li > @Html.ActionLink(item.ItemCategory, "Index", new { name = item.ItemCategory }) </ li >
+                            }
                         }
-                    }
 
-                }
+                    }
                 <li>@Html.ActionLink("All categories", "Index")</li>
 
-            }
+                    
+                }
                @*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  *@
         </ul>
     </div>     
