@@ -51,8 +51,8 @@ namespace AmherstGolfClub.Controllers
                     smtp.Port = 587;
                     smtp.EnableSsl = true;
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    smtp.Credentials = new NetworkCredential("justforclass.oulton@gmail.com", "oulton!@#$");    
-                    msg.To.Add("greglaurette@gmail.com");
+                    smtp.Credentials = new NetworkCredential("agcc1909@gmail.com", "#foxRanch3");    
+                    msg.To.Add("agcc@eastlink.ca");
                     msg.From = from;
                     msg.Subject = c.emailSubject;                      
                     sb.Append("Name: " + c.emailName);                                        

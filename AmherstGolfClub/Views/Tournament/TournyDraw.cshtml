@@ -7,33 +7,33 @@
 <h2 class="text-center">Draw</h2>
 <hr />
 
-<table class="table">
+<table class="table table-striped table-bordered">
     <tr>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.TeeTime)
         </th>
         <th></th>
         <th></th>
         <th></th>
         <th></th>
-        <th></th>
+        
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.TeeTime)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.GolfOne)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.GolfTwo)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.GolfThree)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.GolfFour)
         </td>
         
