@@ -85,6 +85,33 @@ namespace AmherstGolfClub.Controllers
             return View(ProductsToDisplay);
         }
 
+        public ActionResult ProShopImageUpload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ProShopImageUpload(HttpPostedFileBase ResultFile)
+        {
+            string path = null;
+            try
+            {
+                if (ResultFile.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(ResultFile.FileName);
+                    path = AppDomain.CurrentDomain.BaseDirectory + "images\\" + fileName;
+                    ViewBag.Uploaded = "Success";
+                    ResultFile.SaveAs(path);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+
+            return View();
+        }
+
         public ActionResult ViewMenu()
         {
             var menuItems = db.MenuItems.Include(m => m.MenuCategory);

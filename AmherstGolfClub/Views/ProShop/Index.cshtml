@@ -8,99 +8,100 @@
 
 <div class="container">
     @**@
-    
-    <div class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span> </a>
-        <ul class="dropdown-menu">
+    <div class="row">
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category <span class="caret"></span> </a>
+            <ul class="dropdown-menu">
 
-            @* /////////////////////////////////////////////////////////////////////////////////////////////////////// *@
-            @{
-                IEnumerable<AmherstGolfClub.Models.Product> list = new AmherstGolfClub.DAL.GolfContext().Products;
-                int count = 0;
-                foreach (var item in list)
-                {
-                    if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
+                @* /////////////////////////////////////////////////////////////////////////////////////////////////////// *@
+                @{
+                    IEnumerable<AmherstGolfClub.Models.Product> list = new AmherstGolfClub.DAL.GolfContext().Products;
+                    int count = 0;
+                    foreach (var item in list)
                     {
-                        count++;
-                    }
-                }
-
-                string[] filter = new string[count];
-                int filterCount = 0;
-                foreach (var item in list)
-                {
-                    if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
-                    {
-
-                        if (item.ItemCategory != "unknown")
+                        if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
                         {
-                            filter[filterCount] = item.ItemCategory;
+                            count++;
                         }
-                        filterCount++;
                     }
-                }
 
-                string[] filterControl = new string[count];
-                for (int row = 0; row < count; row++)
-                {
-                    filterControl[row] = null;
-                }
-                bool newItem = true;
-
-                for (int row = 0; row < filter.Length; row++)
-                {
-                    for (int filterItem = 0; filterItem < filter.Length; filterItem++)
+                    string[] filter = new string[count];
+                    int filterCount = 0;
+                    foreach (var item in list)
                     {
+                        if (item.Quantity > 0 && item.SubDepartment != "Food & Beverage")
+                        {
+
+                            if (item.ItemCategory != "unknown")
+                            {
+                                filter[filterCount] = item.ItemCategory;
+                            }
+                            filterCount++;
+                        }
+                    }
+
+                    string[] filterControl = new string[count];
+                    for (int row = 0; row < count; row++)
+                    {
+                        filterControl[row] = null;
+                    }
+                    bool newItem = true;
+
+                    for (int row = 0; row < filter.Length; row++)
+                    {
+                        for (int filterItem = 0; filterItem < filter.Length; filterItem++)
+                        {
+                            if (newItem == true)
+                            {
+                                if (filterControl[filterItem] != filter[row] || filterControl[filterItem] == null)
+                                {
+                                    newItem = true;
+                                }
+                                else
+                                {
+                                    newItem = false;
+                                }
+                            }
+                        }
                         if (newItem == true)
                         {
-                            if (filterControl[filterItem] != filter[row] || filterControl[filterItem] == null)
-                            {
-                                newItem = true;
-                            }
-                            else
-                            {
-                                newItem = false;
-                            }
+                            filterControl[row] = filter[row];
+                        }
+                        else
+                        {
+                            newItem = true;
                         }
                     }
-                    if (newItem == true)
+                    Array.Sort(filterControl, (x, y) => String.Compare(x, y));
+
+                    for (int row = 0; row < filterControl.Length; row++)
                     {
-                        filterControl[row] = filter[row];
+                        if (filterControl[row] != null)
+                        {
+                            <li> @Html.ActionLink(filterControl[row], "Index", new { name = filterControl[row] }) </li>
+                        }
                     }
-                    else
-                    {
-                        newItem = true;
-                    }
+                    <li>@Html.ActionLink("All categories", "Index")</li>
+
                 }
+                @*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  *@
+            </ul>
+        </div>
+        
+        <div class="form-inline">
+            <div class="form-group">
 
-                for (int row = 0; row < filterControl.Length; row++)
-                {
-                    if (filterControl[row] != null)
-                    {
-                        <li> @Html.ActionLink(filterControl[row], "Index", new { name = filterControl[row] }) </li>
-                    }
-                }
-                <li>@Html.ActionLink("All categories", "Index")</li>
-
-            }
-               @*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  *@
-        </ul>
-    </div>     
-    <div class="form-inline">
-        <div class="form-group">
-            
-            <div class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">By Price <span class="caret"></span> </a>
-                <ul class="dropdown-menu">
-                    <li>@Html.ActionLink("Low-To-High", "Index", new { sortOrder = ViewBag.PriceSortParm, name = ViewBag.FilterTest })</li>
-                    <li>@Html.ActionLink("High-To-Low", "Index", new { sortOrder = ViewBag.LowPriceSortParm, name = ViewBag.FilterTest })</li>
-                    
-
-
-                </ul>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Price <span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Low-To-High", "Index", new { sortOrder = ViewBag.PriceSortParm, name = ViewBag.FilterTest })</li>
+                        <li>@Html.ActionLink("High-To-Low", "Index", new { sortOrder = ViewBag.LowPriceSortParm, name = ViewBag.FilterTest })</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+    <hr />
     @**@
     
         @{ 
@@ -114,9 +115,15 @@
                     <div class="thumbnail">
                         <h5 class="text-center"><strong>@Html.DisplayFor(c => item.Name)</strong></h5>
                         @*forproduction*@
-                        @*<img class="img-responsive" src="~/{@item.Name}.jpg" alt="~/android-chrome-96x96.png" />*@
-                        @*fortesting*@
-                        <img class="img-responsive" src="~/android-chrome-96x96.png" alt="@item.Name" />
+                        @{ string srcString = @item.Name + ".png"; }
+                        @if (File.Exists(Server.MapPath("~/images/" + srcString)))
+                        {
+                            <img class="img-responsive" src="~/images/@srcString" alt="~/android-chrome-96x96.png" style="height:150px;width:150px;" />
+                        }
+                        else
+                        {
+                            <img class="img-responsive" src="~/mstile-150x150.png" alt="@item.Name" style="height:150px;width:150px;" />
+                        }
                         <p class="text-center">$@Html.DisplayFor(c => item.Price)</p>
 
                     </div>
@@ -126,4 +133,4 @@
                 }
             }
 </div>
-
+<hr />
