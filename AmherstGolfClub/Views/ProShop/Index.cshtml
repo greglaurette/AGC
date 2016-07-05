@@ -5,6 +5,11 @@
 <hr />
 <h2 class="text-center">Proshop Items</h2>
 <hr />
+<div class="alert alert-warning col-md-10 col-md-offset-1">
+    <p class="text-center">Products can be purchased from the ProShop directly.</p>
+    <p class="text-center">Images and stock may vary in colour or style. Should you require a specific item not listed please contact the ProShop directly.</p>
+    
+</div>
 
 <div class="container">
     @**@
@@ -118,7 +123,7 @@
                         @{ string srcString = @item.Name + ".png"; }
                         @if (File.Exists(Server.MapPath("~/images/" + srcString)))
                         {
-                            <img class="img-responsive" src="~/images/@srcString" alt="~/android-chrome-96x96.png" style="height:150px;width:150px;" />
+                            <img class="img-responsive" src="~/images/@srcString" alt="@item.Name" style="height:150px;width:150px;" />
                         }
                         else
                         {

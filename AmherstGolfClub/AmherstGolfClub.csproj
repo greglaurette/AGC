@@ -520,6 +520,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="eventImage\" />
     <Folder Include="images\" />
     <Folder Include="Migrations\GolfMigrations\201606281616471_revert06\" />
     <Folder Include="Tournaments\" />

@@ -10,6 +10,9 @@
     <hr />
     if (ViewBag.Uploaded == null)
     {
+        <div class="col-lg-10 col-md-offset-1 alert alert-warning">
+            <p class="text-center">The image you are uploading requires the EXACT SAME name as the product listed on the spreadsheet.  All uploaded images must be in .png format.</p>
+        </div>
         using (Html.BeginForm("ProShopImageUpload", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <div class="container">
