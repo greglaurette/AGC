@@ -57,6 +57,8 @@ namespace AmherstGolfClub.Controllers
                     msg.Subject = c.emailSubject;                      
                     sb.Append("Name: " + c.emailName);                                        
                     sb.Append(Environment.NewLine);
+                    sb.Append("Email: " + c.emailAddress);
+                    sb.Append(Environment.NewLine);
                     sb.Append("Message: " + c.emailMessage);
                     msg.Body = sb.ToString();
                     smtp.Send(msg);

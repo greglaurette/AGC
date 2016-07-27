@@ -503,9 +503,11 @@ namespace AmherstGolfClub.Controllers
             return View();
         }
 
-        // POST: TournamentDraws/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+       public ActionResult DrawUpload()
+        {
+            ViewBag.TournamentID = new SelectList(db.Tournaments, "TournamentID", "TournamentName");
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DrawCreate([Bind(Include = "TouramentDrawID,TournamentID,TeeTime,GolfOne,GolfTwo,GolfThree,GolfFour")] TournamentDraw tournamentDraw)
@@ -519,6 +521,60 @@ namespace AmherstGolfClub.Controllers
 
             ViewBag.TournamentID = new SelectList(db.Tournaments, "TournamentID", "TournamentName", tournamentDraw.TournamentID);
             return View(tournamentDraw);
+        }
+
+        [HttpPost]
+        public ActionResult DrawUpload(HttpPostedFileBase CSVName, string TournamentID)
+        {
+            string path = null;
+            var DrawToDisplay = new List<TournamentDraw>();
+            try
+            {
+                if (CSVName.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(CSVName.FileName);
+                    path = AppDomain.CurrentDomain.BaseDirectory + "upload\\" + fileName;
+                    CSVName.SaveAs(path);
+
+                    var csv = new CsvReader(new StreamReader(path));
+                    var db = new GolfContext();
+                    int count = 0;
+
+                    while (csv.Read())
+                    {
+                        TournamentDraw draw = new TournamentDraw();
+
+                        var TID = int.Parse(TournamentID);
+                        draw.TournamentID = TID;             
+                        draw.TeeTime = csv.GetField<string>(0);
+                        draw.GolfOne = csv.GetField<string>(1);
+                        draw.GolfTwo = csv.GetField<string>(2);
+                        draw.GolfThree = csv.GetField<string>(3);
+                        draw.GolfFour = csv.GetField<string>(4);
+
+                        
+                        
+                        DrawToDisplay.Add(draw);
+                        var exists = db.TournamentDraws.Where(i => i.TouramentDrawID == draw.TouramentDrawID).SingleOrDefault();
+                        if (exists == null)
+                        {
+                            db.TournamentDraws.Add(draw);
+                            db.SaveChanges();
+                            count += 1;
+                        }
+                    }
+                    ViewBag.RecordsUploaded = DrawToDisplay.Count();
+                    ViewBag.RecordsSaved = count;
+                }
+            }
+
+
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+
+            return View();
         }
 
         // GET: TournamentDraws/Edit/5
