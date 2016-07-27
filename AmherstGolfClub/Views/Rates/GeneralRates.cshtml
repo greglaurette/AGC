@@ -16,13 +16,29 @@
                     <td>Weekday/Weekend</td>
                 </tr>
 
-                @foreach (var item in Model.Take(4))
+                @*@foreach (var item in Model.Take(4))
             {
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
                     </tr>
-                }
+                }*@
+                <tr>
+                    <td>Regular Rate</td>
+                    <td>49.00</td>
+                </tr>
+                <tr>
+                    <td>Member Guest</td>
+                    <td>43.00</td>
+                </tr>
+                <tr>
+                    <td>Juniors</td>
+                    <td>27.00</td>
+                </tr>
+                <tr>
+                    <td>Twilight (after 3:30pm)</td>
+                    <td>29.00</td>
+                </tr>
             </tbody>
         </table>
         <p><em>Visa and Master Card are accepted. Replay rate is $15.00 any day</em></p>
@@ -36,22 +52,50 @@
         <table table class="table table-striped" cellpadding="15">
             <thead><tr><em>Twilight rates start every day at 3:30pm</em></tr></thead>
             <tbody>
-                @foreach (var item in Model.Where(item => item.RatesID > 12 && item.RatesID < 16))
+                @*@foreach (var item in Model.Where(item => item.RatesID > 12 && item.RatesID < 16))
             {
 
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>@Html.DisplayFor(modelItem => item.TimeFrame)</td>
                     </tr>
-                }
-                @foreach (var item in Model.Where(item => item.RatesID > 4 && item.RatesID < 9))
+                }*@
+                <tr>
+                    <td>2 for 1 Green Fees</td>
+                    <td>Monday, Wednesday, Thursday from 1:30pm-3:30pm (except holidays)</td>
+                </tr>
+                <tr>
+                    <td>2 for 1 Green Fees</td>
+                    <td>Tuesday All Day (except holidays)</td>
+                </tr>
+                <tr>
+                    <td>Kids play free every Sunday evening in July & August</td>
+                    <td>Must be between 8 & 18 years old and be accompanied by an Adult</td>
+                </tr>
+                @*@foreach (var item in Model.Where(item => item.RatesID > 4 && item.RatesID < 9))
             {
 
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
                     </tr>
-                }
+                }*@
+                <tr>
+                    <td>Green Fee Package (5 rounds)</td>
+                    <td>229.00</td>
+                </tr>
+                <tr>
+                    <td>Green Fee Package (10 rounds)</td>
+                    <td>399.00</td>
+                </tr>
+                <tr>
+                    <td>9 Hole Green Fee</td>
+                    <td>29.00</td>
+                </tr>
+                <tr>
+                    <td>A Cart and 2 Players</td>
+                    <td>69.00</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -64,14 +108,22 @@
         <table table class="table table-striped" cellpadding="15">
             <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
             <tbody>
-                @foreach (var item in Model.Where(item => item.RatesID > 8 && item.RatesID < 11))
+                @*@foreach (var item in Model.Where(item => item.RatesID > 8 && item.RatesID < 11))
             {
 
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
                     </tr>
-                }
+                }*@
+                <tr>
+                    <td>Small Bucket (35 balls)</td>
+                    <td>4.30</td>
+                </tr>
+                <tr>
+                    <td>Large Bucket (70 balls)</td>
+                    <td>6.91</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -84,14 +136,22 @@
         <table table class="table table-striped" cellpadding="15">
             <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
             <tbody>
-                @foreach (var item in Model.Where(item => item.RatesID > 10 && item.RatesID < 13))
+                @*@foreach (var item in Model.Where(item => item.RatesID > 10 && item.RatesID < 13))
             {
 
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
                     </tr>
-                }
+                }*@
+                <tr>
+                    <td>Yearly Pass - AGCC Member</td>
+                    <td>120.00</td>
+                </tr>
+                <tr>
+                    <td>Yearly Pass - Non AGCC Member</td>
+                    <td>175.00</td>
+                </tr>
             </tbody>
         </table>
     </div>

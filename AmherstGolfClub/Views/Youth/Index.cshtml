@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AmherstGolfClub.Models.Articles>
+﻿@*@model IEnumerable<AmherstGolfClub.Models.Articles>*@
 
 @{
     ViewBag.Title = "Junior Golf";
@@ -12,35 +12,40 @@
             <div class="col-md-8">
                 <div class="row">
                     <h4 class="text-center">
-                        @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 5))
+                        @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 5))
                         {
                             @item.Description
-                        }
+                        }*@
+                        Family Fun Night
                         --
-                        @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 6))
+                        @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 6))
                         {
                             @item.Description
-                        }
+                        }*@
+                        Dates Yet to be Announced
                     </h4>
 
                     <hr />
-                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 7))
+                    @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 7))
                     {
                         <div class="col-md-8 col-md-offset-1"><p class="text-center">@item.Description</p></div>
-                    }
+                    }*@
+                    Great for Mom or Dad to bring out the kids to try golf.  Cost is $10 for Adults, Kids are Free--5pm shotgun start--Call the pro shop to register--902-667-1911.
                 </div>
                 <hr />
                 <h4 class="text-center">
-                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 8))
+                    @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 8))
                     {
                         @item.Description
-                    }
+                    }*@
+                    Summer Special
                 </h4>
                 <hr />
-                @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 9))
+                @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 9))
                 {
                     <div class="col-md-8 col-md-offset-1"><p class="text-center">@item.Description</p></div>
-                }
+                }*@
+                Kids play for free every Sunday night after 6:30pm when accompanied by an adult Green Fee player or Adult Member. For the months of July and August.
             </div>
             <div class="col-md-4">
                 <img src="~/images/familygolfing.jpg" class="img-responsive img-rounded" alt="~/android-chrome-96x96.png" />
@@ -56,37 +61,45 @@
             <div class="col-md-8">
                 <hr />
                 <h4 class="text-center">
-                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 10))
+                    @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 10))
                     {
                         @item.Description
-                    }
+                    }*@
+                    NGCOA Kids Play for Free Week
                     --
-                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 11))
+                    @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 11))
                     {
                         @item.Description
-                    }
+                    }*@
+                    Dates Yet to be Announced
                 </h4>
                 <hr />
-                @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 12))
+                @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 12))
                 {
                     <div class="col-md-8 col-md-offset-1"><p class="text-center">@item.Description</p></div>
-                }
+                }*@
+                Kids Play for free when accompanied by an adult Green Fee player of Adult Member. Kids between the ages of 8 and 18.
             </div>
         </div>
         <div class="row">
             <hr />
             <h4 class="text-center">
-                @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 13))
+                @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID == 13))
                 {
                     @item.Description
-                }
+                }*@
+                Junior Program
             </h4>
             <hr />
                 <div class="col-md-10 col-md-offset-1">
-                    @foreach (var item in Model.Where(modelItem => modelItem.ArticlesID > 13 && modelItem.ArticlesID < 18))
+                    @*@foreach (var item in Model.Where(modelItem => modelItem.ArticlesID > 13 && modelItem.ArticlesID < 18))
                     {
                         <p class="text-center">@item.Description</p>
-                    }
+                    }*@
+                    <p>The Junior Golf program runs every Monday and Thursday morning during the months of July and August.  Program is available for kids between the ages of 8 and 18.</p>
+                    <p>On Monday mornings the kids will play 9 holes with chaperones to help them with rules and etiquette. </p>
+                    <p>On Thursday mornings the kids will have a one hour lesson with kids of their own age but they will not have any supervised play after the lesson. If the kids choose to play they can book a tee time and create their own group.</p>
+                    <p>Cost is $264.13 plus hst, which is the cost of a junior membership to the club.  Once this fee is paid then all of the lessons and other programs are free to the junior member.</p>
                 </div>
             </div>
         </div>

@@ -43,7 +43,7 @@
             <ul id="menu-content" class="menu-content collapse out">
                 <li><a href='@Url.Action("About", "Home")' title="About us">About</a></li>
                 <li><a href='@Url.Action("Contact", "Home")' title="Contact">Contact</a></li>
-                <li><a href='@Url.Action("Index", "MemberInfo")' title="Member Information">Member Information</a></li>
+                @*<li><a href='@Url.Action("Index", "MemberInfo")' title="Member Information">Member Information</a></li>*@
                 <li><a href='@Url.Action("Index", "Tournament")' title="Tournaments">Tournaments</a></li>
                 <li><a href='@Url.Action("Index", "Youth")' title="Youth Programs">Youth Programs</a></li>
                 <li data-toggle="collapse" data-target="#products" class="collapsed">
@@ -57,11 +57,11 @@
                         @*<li><a href='@Url.Action("Events", "Rates")' title="Private Events">Private Events</a></li>*@
                     </ul>
                 </li>
-                <li><a href='@Url.Action("Index", "ProShop")' title="Pro Shop">Pro Shop</a></li>
-                <li><a href='@Url.Action("Index", "Kitchen")' title="Kitchen & Bar">Kitchen &amp; Bar</a></li>
+                @*<li><a href='@Url.Action("Index", "ProShop")' title="Pro Shop">Pro Shop</a></li>
+                <li><a href='@Url.Action("Index", "Kitchen")' title="Kitchen & Bar">Kitchen &amp; Bar</a></li>*@
                 @*<li><a href='@Url.Action("Index", "Gallery")' title="View Gallery">Gallery</a></li>*@
                 <li><a href='#' data-toggle="modal" data-target="#bookTeeTime" title="Make a Reservation">Make a Reservation</a></li>
-                @if (Request.IsAuthenticated)
+                @*@if (Request.IsAuthenticated)
                 {
                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                     {
@@ -76,7 +76,7 @@
                 else
                 {
                     <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-                }
+                }*@
             </ul>
 
         </div>

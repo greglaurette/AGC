@@ -18,7 +18,8 @@ namespace AmherstGolfClub.Controllers
         // GET: Youth
         public ActionResult Index()
         {
-            return View(db.Article);
+            //return View(db.Article);
+            return View();
         }
 
         

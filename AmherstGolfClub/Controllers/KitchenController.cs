@@ -19,7 +19,7 @@ namespace AmherstGolfClub.Controllers
         public ActionResult Index()
         {
             var menuItems = db.MenuItems.Include(m => m.MenuCategory);
-            return View(menuItems);
+            return View(/*menuItems*/);
         }      
        
         protected override void Dispose(bool disposing)

@@ -17,8 +17,9 @@ namespace AmherstGolfClub.Controllers
         public ActionResult Index()
         {
             var events = db.Events;
-            
-            return View(events.ToList());
+
+            //return View(events.ToList());
+            return View();
            
         }
         

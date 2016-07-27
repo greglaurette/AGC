@@ -18,19 +18,23 @@ namespace AmherstGolfClub.Controllers
 
         public ActionResult ShopRentals()
         {
-            return View(db.Rate.ToList());
+            //return View(db.Rate.ToList());
+            return View();
         }
         public ActionResult GeneralRates()
         {
-            return View(db.Rate.ToList());
+            //return View(db.Rate.ToList());
+            return View();
         }
         public ActionResult Membership()
         {
-            return View(db.Rate.ToList());
+            //return View(db.Rate.ToList());
+            return View();
         }
         public ActionResult Corp()
         {
-            return View(db.Rate.ToList());
+            //return View(db.Rate.ToList());
+            return View();
         }
 
         public ActionResult Events()

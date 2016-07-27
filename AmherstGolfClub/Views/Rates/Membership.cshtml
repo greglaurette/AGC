@@ -11,20 +11,56 @@
         <p><em>2016 membership fees include a $65 per year, per adult, fee devoted to capital as well as a $50 (includes tax) bar levy in which you will recieve $60 towards the Bar &amp; Kitchen. HST not included.</em></p>
         <table table class="table table-striped" cellpadding="15">
             <tbody>
-                @foreach (var item in Model.Where(item => item.RatesID > 15 && item.RatesID < 24))
+                @*@foreach (var item in Model.Where(item => item.RatesID > 15 && item.RatesID < 24))
                 {
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
                     </tr>
-                }
-                @foreach (var item in Model.Where(item => item.RatesID > 23 && item.RatesID < 25))
+                }*@
+                <tr>
+                    <td>Playing Members</td>
+                    <td>1044.79</td>
+                </tr>
+                <tr>
+                    <td>Husband and Wife</td>
+                    <td>1920.24</td>
+                </tr>
+                <tr>
+                    <td>Family - Children 18 or under</td>
+                    <td>2154.67</td>
+                </tr>
+                <tr>
+                    <td>Senior - 70 years old +</td>
+                    <td>872.98</td>
+                </tr>
+                <tr>
+                    <td>Student - 19-23 years old with Student ID</td>
+                    <td>545.61</td>
+                </tr>
+                <tr>
+                    <td>Intermediate - 19-32 years old</td>
+                    <td>691.34</td>
+                </tr>
+                <tr>
+                    <td>Junior - Less than 19</td>
+                    <td>264.13</td>
+                </tr>
+                <tr>
+                    <td>New Member (Non member for the past 2 years) *this special can only be used once in a persons lifetime*</td>
+                    <td>543.52</td>
+                </tr>
+                @*@foreach (var item in Model.Where(item => item.RatesID > 23 && item.RatesID < 25))
                 {
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Description) @DateTime.Now.AddYears(-1).ToString("yyyy"))</td>
                         <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
                     </tr>
-                }
+                }*@
+                <tr>
+                    <td>Second Year Member (was a "New Member" in 2015)</td>
+                    <td>858.43</td>
+                </tr>
             </tbody>
         </table>
         <p><em>Visa and Master Card are accepted. Replay rate is $15.00 any day</em></p>

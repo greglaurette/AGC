@@ -12,13 +12,21 @@
         <table class="table table-striped" cellpadding="15">
             <thead><tr><em>Prices Do Not Include HST</em></tr></thead>
             <tbody>
-                @foreach (var item in Model.Where(item => item.RatesID > 43 && item.RatesID < 46))
+                @*@foreach (var item in Model.Where(item => item.RatesID > 43 && item.RatesID < 46))
                 {
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>$ @Html.DisplayFor(modelItem => item.Rate)</td>
                     </tr>
-                }
+                }*@
+                <tr>
+                    <td>20 Rounds</td>
+                    <td>649.95</td>
+                </tr>
+                <tr>
+                    <td>20 Rounds + 20 cart seat rental</td>
+                    <td>969.95</td>
+                </tr>
             </tbody>
         </table>
         <p><em>Visa and Master Card are accepted. Replay rate is $15.00 any day</em></p>

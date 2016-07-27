@@ -19,13 +19,15 @@ namespace AmherstGolfClub.Controllers
         public ActionResult Index()
         {
             var articles = db.Article;
-            return View(articles);
+            //return View(articles);
+            return View();
         }
 
         public ActionResult About()
         {
             var articles = db.Article;
-            return View(articles);
+            //return View(/*articles*/);
+            return View();
         }
 
         public ActionResult Contact()
